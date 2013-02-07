@@ -27,8 +27,7 @@ public class TypeExtractorTest {
 
     @Test
      public void separateExtensionFromPathIfExtensionExists(){
-        String path = new String ("image.gif");
-        assertEquals("gif", typeExtractor.separateExtensionFromPath(path));
+        assertEquals("gif", typeExtractor.separateExtensionFromPath("image.gif"));
     };
 
     @Test
