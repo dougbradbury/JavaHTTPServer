@@ -13,6 +13,7 @@ import static java.lang.System.out;
  * To change this template use File | Settings | File Templates.
  */
 public class BinaryReader {
+
     byte[] readBinaryFile(String fileName) {
         String directory = "com/angeleah/webserver/";
         File file = new File(directory.concat(fileName));

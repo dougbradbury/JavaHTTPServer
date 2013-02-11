@@ -27,14 +27,7 @@ public class BinaryReaderTest {
     @Test
     public void itShouldBeAbleToReturnTheSizeOfABinaryFile() {
         String file = "binary.dat";
-//        ArrayList array = new ArrayList();
-//        array.add(1);
-//        array.add(2);
-//        array.add(3);
-//        array.add(4);
         byte[] data = reader.readBinaryFile(file);
-//        String dataToArray = Arrays.toString(data);
-//        String s2 = new String(b1);
         assertEquals(4, data.length);
         assertEquals(1, data[0]);
     };

@@ -33,7 +33,7 @@ public class RequestStore {
         return requestUri;
     };
 
-    public void setprotocolVersion(String version) {
+    public void setProtocolVersion(String version) {
         protocolVersion = version;
     };
 

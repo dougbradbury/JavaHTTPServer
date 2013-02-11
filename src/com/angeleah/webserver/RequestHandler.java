@@ -10,5 +10,5 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public interface RequestHandler {
-    public Map<String, String> handle(Map<String, String> request);
+    public Object handle(Object request);
 }

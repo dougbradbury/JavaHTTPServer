@@ -16,7 +16,11 @@ public class HeaderParser {
         String[] parts = line.split(" ");
         requestStore.setMethod(parts[0]);
         requestStore.setRequestUri(parts[1]);
-        requestStore.setprotocolVersion(parts[2]);
+        requestStore.setProtocolVersion(parts[2]);
         return requestStore;
     };
+
+
+
+//    need to read the first line and then hand it off to be handled.  read the rest including the body.
 }
