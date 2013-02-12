@@ -1,5 +1,6 @@
 package com.angeleah.webserver;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -48,10 +49,22 @@ public class IndexHandlerTest {
         assertEquals(dirContentsWithout404, indexHandler.remove404FromTheDirectoryContents(dirContents));
     }
 
-//    @Test
-//    public void itShouldBeAbleToReturnTheHtmlMarkup() {
-//        String directory = "com/angeleah/webserver/TestDirectory";
-//        String
-//        assertEquals(html, indexHandler.buildIndexContent(directory));
-//    };
+    @Test
+    public void itShouldBeAbleToHandleTherequest() {
+        RequestStore requestStore = new RequestStore();
+        String directory = "com/angeleah/webserver/TestDirectory";
+        requestStore.setDirectory(directory);
+        indexHandler.handle(requestStore);
+        String code = requestStore.getCode();
+        String status = requestStore.getStatus();
+        assertEquals("200", code );
+        assertEquals("OK", status);
+    }
+
+    public void itShouldBeAbleToConvertTheBodyToBytes() {
+        String body = "<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<a href=\"/anotherTestFile.html\">anotherTestFile.html</a>\n<a href=\"/awesomePage.html\">awesomePage.html</a>\n<a href=\"/file1\">file1</a>\n<a href=\"/helloWorld.html\">helloWorld.html</a>\n<a href=\"/imageTest.jpeg\">imageTest.jpeg</a>\n</body>";
+
+        assertEquals(body.getBytes(),indexHandler.convertBodyToByteArray(body));
+    }
+
 }

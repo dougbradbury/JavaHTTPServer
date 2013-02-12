@@ -50,7 +50,7 @@ public class RequestStoreTest {
 
     @Test
     public void shouldHaveBody() {
-        Byte[] body = new Byte[]{1,2,3};
+        byte[] body = new byte[]{1,2,3};
         requestStore.setBody(body);
         assertEquals(body[0], requestStore.getBody()[0]);
         assertEquals(body[1], requestStore.getBody()[1]);

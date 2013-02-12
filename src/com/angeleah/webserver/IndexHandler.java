@@ -16,7 +16,16 @@ import java.util.Map;
 * Time: 11:54 AM
 * To change this template use File | Settings | File Templates.
 */
-public class IndexHandler {
+public class IndexHandler implements RequestHandler {
+
+    public RequestStore handle(RequestStore requestStore) {
+        HtmlBodyBuilder htmlBodyBuilder = new HtmlBodyBuilder();
+        ArrayList<String> dirContents = readDirectory(requestStore.getDirectory());
+        String body = htmlBodyBuilder.createHtmlBodyWithDirectoryContents(dirContents);
+        requestStore.setBody(convertBodyToByteArray(body));
+        requestStore.setOk();
+        return requestStore;
+    }
 
     public ArrayList<String> readDirectory(String dir) {
         ArrayList<String> directoryContents = new ArrayList<String>();
@@ -36,11 +45,8 @@ public class IndexHandler {
         return contents;
     }
 
-//    public String buildIndexContent(String directory) {
-//
-//    }
-
-//    public String buildIndexContent(ArrayList<String> directoryContents) {
-//        HtmlBodyBuilder bodyBuilder = new HtmlBodyBuilder();
-//    }
+    public byte[] convertBodyToByteArray(String body) {
+        byte[] bodyByteArray = body.getBytes();
+        return bodyByteArray;
+    }
 }
