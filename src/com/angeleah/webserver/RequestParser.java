@@ -13,6 +13,6 @@ import java.net.Socket;
  * To change this template use File | Settings | File Templates.
  */
 public class RequestParser{
-
+//make a new mime type extractor here.
 
 };

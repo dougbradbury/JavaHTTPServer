@@ -19,6 +19,7 @@ public class RequestStore {
     private String code;
     private String status;
     private String location;
+    private String mimeType;
 
 
     public void setMethod(String methodValue) {
@@ -99,5 +100,13 @@ public class RequestStore {
     public void set404() {
         code = "404";
         status = "not found";
+    }
+
+    public void setMimeType(String type) {
+        mimeType = type;
+    }
+
+    public String getMimeType() {
+        return mimeType;
     }
 }

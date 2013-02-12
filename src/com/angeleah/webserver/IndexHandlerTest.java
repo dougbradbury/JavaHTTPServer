@@ -63,7 +63,6 @@ public class IndexHandlerTest {
 
     public void itShouldBeAbleToConvertTheBodyToBytes() {
         String body = "<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<a href=\"/anotherTestFile.html\">anotherTestFile.html</a>\n<a href=\"/awesomePage.html\">awesomePage.html</a>\n<a href=\"/file1\">file1</a>\n<a href=\"/helloWorld.html\">helloWorld.html</a>\n<a href=\"/imageTest.jpeg\">imageTest.jpeg</a>\n</body>";
-
         assertEquals(body.getBytes(),indexHandler.convertBodyToByteArray(body));
     }
 
