@@ -29,9 +29,9 @@
     <file path="/AddDataToBodyBuilderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1358883925987" ignored="false" />
     <file path="/AddDataToBodyBuilder.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1358876556618" ignored="false" />
     <file path="/RequestHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360543272970" ignored="false" />
-    <file path="/IndexHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360687075906" ignored="false" />
-    <file path="/HtmlBodyBuilder.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360683638044" ignored="false" />
-    <file path="/HtmlBodyBuilderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360683799230" ignored="false" />
+    <file path="/IndexHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360687901667" ignored="false" />
+    <file path="/HtmlBodyBuilder.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360688455948" ignored="false" />
+    <file path="/HtmlBodyBuilderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360688424936" ignored="false" />
     <file path="/Reader.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359044798190" ignored="false" />
     <file path="/TypeExtractor.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359412415963" ignored="false" />
     <file path="/TypeExtractorTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359403896111" ignored="false" />
@@ -53,7 +53,7 @@
     <file path="/Main.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360274584445" ignored="false" />
     <file path="/CharacterWriterTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360359033929" ignored="false" />
     <file path="/CharacterWriter.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360355747609" ignored="false" />
-    <file path="/IndexHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360687610791" ignored="false" />
+    <file path="/IndexHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360687944522" ignored="false" />
     <file path="/RequestParser.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360602518766" ignored="false" />
     <file path="/RequestParserTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360598204125" ignored="false" />
     <file path="/RequestReader.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360642228385" ignored="false" />
@@ -121,46 +121,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IndexHandlerTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="79" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.79646015">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#686#694#0" expanded="true" />
-                <element signature="e#1211#1219#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="10" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#726#734#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryReader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/BinaryReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="61" selection-start="813" selection-end="813" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HtmlBodyBuilder.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HtmlBodyBuilder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="48" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+            <state line="15" column="44" selection-start="308" selection-end="308" vertical-scroll-proportion="0.24210526">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,22 +135,10 @@
       <file leaf-file-name="HtmlBodyBuilderTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="58" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
+            <state line="20" column="17" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#500#508#0" expanded="true" />
                 <element signature="e#985#1001#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestReader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="93" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1028#1036#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -222,10 +174,10 @@
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestReaderTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestReader.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" />
       </list>
     </option>
   </component>
@@ -771,25 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="48" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="58" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#500#508#0" expanded="true" />
-            <element signature="e#985#1001#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/TestDirectory/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -799,21 +732,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="10" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0">
+        <state line="38" column="0" selection-start="1085" selection-end="1151" vertical-scroll-proportion="0.6631579">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#726#734#0" expanded="true" />
+            <element signature="e#571#579#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="79" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.79646015">
+        <state line="56" column="1" selection-start="1917" selection-end="1918" vertical-scroll-proportion="1.231579">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#686#694#0" expanded="true" />
-            <element signature="e#1211#1219#0" expanded="true" />
+            <element signature="e#685#693#0" expanded="true" />
+            <element signature="e#1210#1218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="17" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#500#508#0" expanded="true" />
+            <element signature="e#985#1001#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="44" selection-start="308" selection-end="308" vertical-scroll-proportion="0.24210526">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

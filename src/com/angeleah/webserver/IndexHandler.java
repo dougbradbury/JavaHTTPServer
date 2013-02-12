@@ -18,12 +18,6 @@ import java.util.Map;
 */
 public class IndexHandler {
 
-    public RequestStore indexHandler(RequestStore requestStore) {
-//        RequestStore requestStore = requestStore;
-        return requestStore;
-    }
-
-
     public ArrayList<String> readDirectory(String dir) {
         ArrayList<String> directoryContents = new ArrayList<String>();
         File directory = new File(dir);
@@ -41,6 +35,10 @@ public class IndexHandler {
         }
         return contents;
     }
+
+//    public String buildIndexContent(String directory) {
+//
+//    }
 
 //    public String buildIndexContent(ArrayList<String> directoryContents) {
 //        HtmlBodyBuilder bodyBuilder = new HtmlBodyBuilder();

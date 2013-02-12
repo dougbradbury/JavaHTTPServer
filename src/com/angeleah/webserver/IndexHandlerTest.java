@@ -21,7 +21,7 @@ public class IndexHandlerTest {
     @Before
     public void SetUp() {
         indexHandler = new IndexHandler();
-    };
+    }
 
     @Test
     public void indexHandlerShouldBeAbleToReadADirectory() {
@@ -49,14 +49,9 @@ public class IndexHandlerTest {
     }
 
 //    @Test
-//    public void itShouldReturnTheProperHtmlMarkup() {
+//    public void itShouldBeAbleToReturnTheHtmlMarkup() {
 //        String directory = "com/angeleah/webserver/TestDirectory";
-//        ArrayList<String> dirContents = new ArrayList<String>();
-//        dirContents.add("anotherTestFile.html");
-//        dirContents.add("awesomePage.html");
-//        dirContents.add("file1");
-//        dirContents.add("helloWorld.html");
-//        dirContents.add("imageTest.jpeg");
-//        assertEquals(html, indexHandler.buildIndexContent());
+//        String
+//        assertEquals(html, indexHandler.buildIndexContent(directory));
 //    };
 }

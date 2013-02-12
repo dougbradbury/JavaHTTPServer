@@ -20,7 +20,7 @@ public class HtmlBodyBuilder {
     }
 
     public String createHtmlBodyWithParamsContent(Map<String, String> content) {
-        return createHtmlHeaderTags()+ CreateParamsParagraphs(content)+"</body>";
+        return createHtmlHeaderTags()+ createParagraphsToContainParams(content)+"</body>";
     }
 
     public String createHtmlHeaderTags() {
@@ -32,18 +32,18 @@ public class HtmlBodyBuilder {
     }
 
     public String createDirectoryLinks(ArrayList<String> links) {
-        StringBuilder linkString =  new StringBuilder();
+        StringBuilder linkTagString =  new StringBuilder();
         for (String link : links) {
-           linkString.append("<a href=\"/");
-           linkString.append(link);
-           linkString.append("\">");
-           linkString.append(link);
-           linkString.append("</a>\n");
+           linkTagString.append("<a href=\"/");
+           linkTagString.append(link);
+           linkTagString.append("\">");
+           linkTagString.append(link);
+           linkTagString.append("</a>\n");
         }
-    return linkString.toString();
+    return linkTagString.toString();
     }
 
-    public String CreateParamsParagraphs(Map<String, String> params) {
+    public String createParagraphsToContainParams(Map<String, String> params) {
         StringBuilder paramsString = new StringBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) {
             paramsString.append("<p>");

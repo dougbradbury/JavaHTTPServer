@@ -18,7 +18,7 @@ public class HtmlBodyBuilderTest {
     }
 
     @Test
-    public void CreateHtmlBodyWithDirectoryContents() {
+    public void createHtmlBodyWithDirectoryContents() {
         ArrayList<String> content = new ArrayList<String>();
         content.add("file1");
         content.add("file2");
@@ -28,7 +28,7 @@ public class HtmlBodyBuilderTest {
     };
 
     @Test
-    public void CreateHtmlBodyWithParamsContent() {
+    public void createHtmlBodyWithParamsContent() {
         Map<String, String> params = new HashMap<String, String>();
         params.put("value1", "123456abcd");
         params.put("value2", "hello");
