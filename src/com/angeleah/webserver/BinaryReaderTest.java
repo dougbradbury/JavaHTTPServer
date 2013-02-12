@@ -6,8 +6,6 @@ import static junit.framework.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 /**
  * Created with IntelliJ IDEA.
  * User: angeleah
@@ -27,7 +25,8 @@ public class BinaryReaderTest {
     @Test
     public void itShouldBeAbleToReturnTheSizeOfABinaryFile() {
         String file = "binary.dat";
-        byte[] data = reader.readBinaryFile(file);
+        String directory = "com/angeleah/webserver/";
+        byte[] data = reader.read(directory, file);
         assertEquals(4, data.length);
         assertEquals(1, data[0]);
     };
@@ -35,7 +34,8 @@ public class BinaryReaderTest {
     @Test
     public void itShouldBeAbleToReadARegularTextFile() {
         String file = "textTest.txt";
-        byte[] data = reader.readBinaryFile(file);
+        String directory = "com/angeleah/webserver/";
+        byte[] data = reader.read(directory, file);
         String fileContents = new String(data);
         assertEquals("Hello", fileContents);
     };

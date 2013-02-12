@@ -50,7 +50,7 @@ public class IndexHandlerTest {
     }
 
     @Test
-    public void itShouldBeAbleToHandleTherequest() {
+    public void itShouldBeAbleToHandleTheRequest() {
         RequestStore requestStore = new RequestStore();
         String directory = "com/angeleah/webserver/TestDirectory";
         requestStore.setDirectory(directory);

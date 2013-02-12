@@ -14,8 +14,7 @@ import static java.lang.System.out;
  */
 public class BinaryReader {
 
-    byte[] readBinaryFile(String fileName) {
-        String directory = "com/angeleah/webserver/";
+    byte[] read(String directory, String fileName) {
         File file = new File(directory.concat(fileName));
         byte[] result = null;
         try {
