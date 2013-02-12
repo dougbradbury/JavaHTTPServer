@@ -31,7 +31,15 @@ public class IndexHandler {
         for (String name : contents) {
             directoryContents.add(name);
         }
+        remove404FromTheDirectoryContents(directoryContents);
         return directoryContents;
+    }
+
+    public ArrayList<String> remove404FromTheDirectoryContents(ArrayList<String> contents) {
+        if (contents.contains("404.html")) {
+            contents.remove("404.html");
+        }
+        return contents;
     }
 
 //    public String buildIndexContent(ArrayList<String> directoryContents) {

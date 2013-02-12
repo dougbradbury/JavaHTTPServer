@@ -24,7 +24,7 @@ public class IndexHandlerTest {
     };
 
     @Test
-    public void IndexHandlerShouldBeAbleToReadADirectory() {
+    public void indexHandlerShouldBeAbleToReadADirectory() {
         String directory = "com/angeleah/webserver/TestDirectory";
         ArrayList<String> dirContents = new ArrayList<String>();
         dirContents.add("anotherTestFile.html");
@@ -33,7 +33,20 @@ public class IndexHandlerTest {
         dirContents.add("helloWorld.html");
         dirContents.add("imageTest.jpeg");
         assertEquals(dirContents, indexHandler.readDirectory(directory));
-    };
+    }
+
+    @Test
+    public void itShouldBeAbleToRemoveThe404PageFromTheDirectoryContents() {
+        String directory = "com/angeleah/webserver/TestDirectory";
+        ArrayList<String> dirContentsWithout404 = new ArrayList<String>();
+        dirContentsWithout404.add("anotherTestFile.html");
+        dirContentsWithout404.add("awesomePage.html");
+        dirContentsWithout404.add("file1");
+        dirContentsWithout404.add("helloWorld.html");
+        dirContentsWithout404.add("imageTest.jpeg");
+        ArrayList<String> dirContents = indexHandler.readDirectory(directory);
+        assertEquals(dirContentsWithout404, indexHandler.remove404FromTheDirectoryContents(dirContents));
+    }
 
 //    @Test
 //    public void itShouldReturnTheProperHtmlMarkup() {
