@@ -2,6 +2,7 @@ package com.angeleah.webserver;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,9 +19,12 @@ public class HtmlBodyBuilderTest {
 
     @Test
     public void CreateHtmlBodyWithDirectoryContents() {
-        String[] content = new String[] {"file1", "file2", "image.gif"};
+        ArrayList<String> content = new ArrayList<String>();
+        content.add("file1");
+        content.add("file2");
+        content.add("image.gif");
         assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<a href=\"/file1\">file1</a>\n<a href=\"/file2\">file2</a>\n<a href=\"/image.gif\">image.gif</a>\n</body>",
-                htmlBodyBuilder.CreateHtmlBodyWithDirectoryContents(content));
+                htmlBodyBuilder.createHtmlBodyWithDirectoryContents(content));
     };
 
     @Test
@@ -29,7 +33,7 @@ public class HtmlBodyBuilderTest {
         params.put("value1", "123456abcd");
         params.put("value2", "hello");
         assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>value1 = 123456abcd</p>\n<p>value2 = hello</p>\n</body>",
-                htmlBodyBuilder.CreateHtmlBodyWithParamsContent(params));
+                htmlBodyBuilder.createHtmlBodyWithParamsContent(params));
 
     };
 

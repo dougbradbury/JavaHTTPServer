@@ -76,6 +76,7 @@ public class Connection {
 //
 //        try {
 //              clientSocket = serverSocket.accept();
+
 //              InputStream  sockIn = clientSocket.getInputStream();
 //              OutputStream sockOut = clientSocket.getOutputStream();
 //

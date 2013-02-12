@@ -1,5 +1,6 @@
 package com.angeleah.webserver;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -11,11 +12,14 @@ import java.util.Map;
  */
 public class HtmlBodyBuilder {
 
-    public String CreateHtmlBodyWithDirectoryContents(String[] content) {
+    public HtmlBodyBuilder() {
+    }
+
+    public String createHtmlBodyWithDirectoryContents(ArrayList<String> content) {
         return createHtmlHeaderTags()+createDirectoryLinks(content)+"</body>";
     }
 
-    public String CreateHtmlBodyWithParamsContent(Map<String, String> content) {
+    public String createHtmlBodyWithParamsContent(Map<String, String> content) {
         return createHtmlHeaderTags()+ CreateParamsParagraphs(content)+"</body>";
     }
 
@@ -27,7 +31,7 @@ public class HtmlBodyBuilder {
      return  headerTagString.toString();
     }
 
-    public String createDirectoryLinks(String[] links) {
+    public String createDirectoryLinks(ArrayList<String> links) {
         StringBuilder linkString =  new StringBuilder();
         for (String link : links) {
            linkString.append("<a href=\"/");
@@ -35,7 +39,7 @@ public class HtmlBodyBuilder {
            linkString.append("\">");
            linkString.append(link);
            linkString.append("</a>\n");
-        };
+        }
     return linkString.toString();
     }
 
@@ -47,7 +51,7 @@ public class HtmlBodyBuilder {
             paramsString.append(" = ");
             paramsString.append(entry.getValue());
             paramsString.append("</p>\n");
-        };
+        }
     return paramsString.toString();
     }
 

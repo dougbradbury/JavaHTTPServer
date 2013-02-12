@@ -21,7 +21,7 @@ public class IndexHandler {
     public RequestStore indexHandler(RequestStore requestStore) {
 //        RequestStore requestStore = requestStore;
         return requestStore;
-    };
+    }
 
 
     public ArrayList<String> readDirectory(String dir) {
@@ -32,5 +32,9 @@ public class IndexHandler {
             directoryContents.add(name);
         }
         return directoryContents;
-    };
+    }
+
+//    public String buildIndexContent(ArrayList<String> directoryContents) {
+//        HtmlBodyBuilder bodyBuilder = new HtmlBodyBuilder();
+//    }
 }

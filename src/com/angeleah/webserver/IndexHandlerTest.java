@@ -23,8 +23,6 @@ public class IndexHandlerTest {
         indexHandler = new IndexHandler();
     };
 
-//    I need a mock request store.
-
     @Test
     public void IndexHandlerShouldBeAbleToReadADirectory() {
         String directory = "com/angeleah/webserver/TestDirectory";
@@ -35,5 +33,17 @@ public class IndexHandlerTest {
         dirContents.add("helloWorld.html");
         dirContents.add("imageTest.jpeg");
         assertEquals(dirContents, indexHandler.readDirectory(directory));
-    }
+    };
+
+//    @Test
+//    public void itShouldReturnTheProperHtmlMarkup() {
+//        String directory = "com/angeleah/webserver/TestDirectory";
+//        ArrayList<String> dirContents = new ArrayList<String>();
+//        dirContents.add("anotherTestFile.html");
+//        dirContents.add("awesomePage.html");
+//        dirContents.add("file1");
+//        dirContents.add("helloWorld.html");
+//        dirContents.add("imageTest.jpeg");
+//        assertEquals(html, indexHandler.buildIndexContent());
+//    };
 }
