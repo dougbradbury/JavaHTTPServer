@@ -16,17 +16,18 @@ import java.util.ArrayList;
  */
 public class RequestReader {
 
-    public RequestReader(Reader inputStream) {
-        try {
-            BufferedReader in = new BufferedReader(inputStream);
-            Integer contentLength = 0;
-            ArrayList<String> headers = readHeaders(in);
-            String content = readBody(in);
-            parseHeaders(headers);
-        } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-    }
+//    public RequestReader(Reader inputStream) {
+//        try {
+//            BufferedReader in = new BufferedReader(inputStream);
+//            ArrayList<String> headers = readHeaders(in);
+//            String content = readBody(in);
+//            parseHeaders(headers);
+//        } catch (IOException e) {
+//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//        }
+//    }
+
+    public
 
     ArrayList<String> readHeaders(BufferedReader in) throws IOException {
 //        StringBuilder unparsedHeader = new StringBuilder();
@@ -49,5 +50,8 @@ public class RequestReader {
     public RequestStore parseContent(String content) {
                     return null;
     };
+
+    public void readRequest() {
+    }
 }
 //Can I process them individually as they come in? into a map?
