@@ -20,6 +20,7 @@ public class RequestStore {
     private String status;
     private String location;
     private String mimeType;
+    public HashMap params;
 
 
     public void setMethod(String methodValue) {
@@ -92,7 +93,7 @@ public class RequestStore {
     }
 
     public void setRedirect() {
-        code = "302;";
+        code = "302";
         status = "redirect";
         location  = "http://localhost:5000/";
     }
@@ -108,5 +109,10 @@ public class RequestStore {
 
     public String getMimeType() {
         return mimeType;
+    }
+
+//    need to implement the hashmapping for this.
+    public void setParams(HashMap paramsMap) {
+        params = paramsMap;
     }
 }

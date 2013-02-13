@@ -31,10 +31,19 @@ public class NotFoundHandlerTest {
         requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
         String body = "<h1>NotFound</h1>";
         notFoundHandler.handle(requestStore);
-//        assertEquals(body.getBytes(),requestStore.getBody());
-
-//        need to iterate over these two individually and compare the chars.
+        byte[] b1 = requestStore.getBody();
+        byte[] b2 = body.getBytes();
+        System.out.println(b1);
+        System.out.println(b2);
+        assertEquals(true, byteArrayCompare(b1, b2));
     }
 
-
+    public boolean byteArrayCompare(byte[] b1, byte[] b2){
+        for (int i=0; i< b1.length; i++) {
+            if (b1[i] != b2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -2,6 +2,8 @@ package com.angeleah.webserver;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertTrue;
+import java.util.logging.Logger;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,15 +24,26 @@ public class FileHandlerTest {
     }
 
     @Test
-    public void itShouldBeAbleToHandleAnImageRequestProperly() {
+    public void itShouldBeAbleToHandleAFileRequestProperly() {
         RequestStore requestStore = new RequestStore();
         requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
         String body = "<p>This Page is awesome</p>";
         fileHandler.handle(requestStore, "awesomePage.html");
         assertEquals("200", requestStore.getCode());
         assertEquals("OK",requestStore.getStatus());
-//        assertEquals(body.getBytes(), requestStore.getBody());
-        //        need to iterate over these two individually and compare the chars.
+        byte[] b1 = requestStore.getBody();
+        byte[] b2 = body.getBytes();
+        System.out.println(b1);
+        System.out.println(b2);
+        assertEquals(true, FileByteArrayCompare(b1, b2));
+    }
 
+    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
+        for (int i=0; i< b1.length; i++) {
+            if (b1[i] != b2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
