@@ -19,25 +19,16 @@ import java.io.*;
 //    public void testStringReader() throws IOException {
 //        StringReader in = new StringReader("HTTP/1.1 GET / \n");
 //        RequestReader requestReader = new RequestReader(in);
+//        requestReader.
 //    }
+//
+//
 //
 //    @Test
 //    public void testReader() throws IOException {
-//        InputStream in = new InputStream();
-
-//            public String input = "HTTP/1.1 GET / \n";
-//            public char[] bytes = input.toCharArray();
-//            public int readIndex = 0;
-//            @Override
-//            public int read() throws IOException {
-//                if (readIndex < input.length()) {
-//                return bytes[readIndex++];
-//                }
-//                else {
-//                    return -1;
-//                }
-//            }
-//        };
+//    StringReader stream = new StringReader("HTTP/1.1 GET / \n");
+//    RequestReader requestReader = new RequestReader(stream);
+//    }
 
 //        InputStreamReader stream = new InputStreamReader(in);
 //        RequestReader requestReader = new RequestReader(stream);

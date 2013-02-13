@@ -111,8 +111,11 @@ public class RequestStore {
         return mimeType;
     }
 
-//    need to implement the hashmapping for this.
     public void setParams(HashMap paramsMap) {
         params = paramsMap;
+    }
+
+    public HashMap getParams() {
+        return params;
     }
 }

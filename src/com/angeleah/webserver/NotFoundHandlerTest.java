@@ -29,16 +29,14 @@ public class NotFoundHandlerTest {
     public void itShouldbeAbleToHandleA404Properly() {
         RequestStore requestStore = new RequestStore();
         requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
-        String body = "<h1>NotFound</h1>";
+        String body = "<h1>Not Found</h1>";
         notFoundHandler.handle(requestStore);
         byte[] b1 = requestStore.getBody();
         byte[] b2 = body.getBytes();
-        System.out.println(b1);
-        System.out.println(b2);
-        assertEquals(true, byteArrayCompare(b1, b2));
+        assertEquals(true, FileByteArrayCompare(b1, b2));
     }
 
-    public boolean byteArrayCompare(byte[] b1, byte[] b2){
+    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
         for (int i=0; i< b1.length; i++) {
             if (b1[i] != b2[i]) {
                 return false;

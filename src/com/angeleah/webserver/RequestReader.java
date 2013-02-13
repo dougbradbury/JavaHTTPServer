@@ -3,6 +3,7 @@ package com.angeleah.webserver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  */
 public class RequestReader {
 
-    public RequestReader(InputStreamReader inputStream) {
+    public RequestReader(Reader inputStream) {
         try {
             BufferedReader in = new BufferedReader(inputStream);
             Integer contentLength = 0;

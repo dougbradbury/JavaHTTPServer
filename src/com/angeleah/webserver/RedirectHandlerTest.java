@@ -27,6 +27,6 @@ public class RedirectHandlerTest {
         redirectHandler.handle(requestStore);
         assertEquals("redirect",requestStore.getStatus());
         assertEquals("302",requestStore.getCode());
-//        location should be root(host + /) ?
+        assertEquals("http://localhost:5000/", requestStore.getLocation());
     }
 }

@@ -33,9 +33,7 @@ public class FileHandlerTest {
         assertEquals("OK",requestStore.getStatus());
         byte[] b1 = requestStore.getBody();
         byte[] b2 = body.getBytes();
-        System.out.println(b1);
-        System.out.println(b2);
-        assertEquals(true, FileByteArrayCompare(b1, b2));
+        assert(FileByteArrayCompare(b1, b2));
     }
 
     public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
