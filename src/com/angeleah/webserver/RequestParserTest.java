@@ -34,32 +34,15 @@ public class RequestParserTest {
     }
 
     @Test
-    public void itShouldBeAbleToHandleTheInitialRequestLine() throws IOException {
+    public void itShouldBeAbleToParseTheInitialRequestLine() throws IOException {
         StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> headers = requestParser.readHeaders(in);
         String initialRequestLine = headers.remove(0);
-        requestParser.handleInitialRequestLine(initialRequestLine);
+        requestParser.parseInitialRequestLine(initialRequestLine);
         assertEquals("HTTP/1.1", requestStore.getProtocolVersion());
+        assertEquals("GET", requestStore.getMethod());
+        assertEquals("/", requestStore.getRequestUri());
     }
-
-//    @Test
-//    public void shouldBeAbleToParseTheMethod() {
-//        String firstLine = new String("GET /form HTTP/1.1");
-//        RequestStore request = headerParser.handleInitialRequestLine(firstLine);
-//        assertEquals("GET", request.method());
-//    }
-//
-//    public void shouldBeAbleToParseTheRequesturi() {
-//        String firstLine = new String("GET /form HTTP/1.1");
-//        RequestStore request = headerParser.handleInitialRequestLine(firstLine);
-//        assertEquals("/form", request.header("requestUri"));
-//    }
-//
-//    public void shouldBeAbleToParseTheprotocolversion() {
-//        String firstLine = new String("GET /form HTTP/1.1");
-//        RequestStore request = headerParser.handleInitialRequestLine(firstLine);
-//        assertEquals("HTTP/1.1", request.header("protocolVersion"));
-//    }
 }

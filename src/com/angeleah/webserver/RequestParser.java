@@ -23,8 +23,7 @@ public class RequestParser {
 
     public void processRequest(Reader inputStream) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(inputStream);
-        String initialRequestLIne = requestHeaders.remove(0);
-        handleInitialRequestLine(initialRequestLIne);
+        parseInitialRequestLine(requestHeaders.remove(0));
         splitHeaders(requestHeaders);
 //        ? set header values in requeststore?
 //        getBody(); if no content length return null. That way I can say if body is !null
@@ -42,7 +41,7 @@ public class RequestParser {
         return data;
     }
 
-    public RequestStore handleInitialRequestLine(String line) {
+    public RequestStore parseInitialRequestLine(String line) {
         String[] parts = line.split(" ");
         requestStore.setMethod(parts[0]);
         requestStore.setRequestUri(parts[1]);

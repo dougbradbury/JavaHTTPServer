@@ -24,7 +24,7 @@ public class RequestStoreTest {
     @Test
     public void methodShouldReturnMethod() {
         requestStore.setMethod("GET");
-        assertEquals("GET", requestStore.method());
+        assertEquals("GET", requestStore.getMethod());
     }
 
     @Test

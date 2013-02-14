@@ -27,7 +27,7 @@ public class RequestStore {
         method = methodValue;
     }
 
-    public String method() {
+    public String getMethod() {
         return method;
     }
 
@@ -35,7 +35,7 @@ public class RequestStore {
         requestUri = UriValue;
     }
 
-    public String requestUri() {
+    public String getRequestUri() {
         return requestUri;
     }
 
