@@ -20,6 +20,7 @@ public class RequestStore {
     private String status;
     private String location;
     private String mimeType;
+    public Integer contentLength;
     public HashMap params;
 
 
@@ -51,8 +52,16 @@ public class RequestStore {
         headers.put(key, value);
     }
 
-    public String header(String key) {
+    public String getheaders(String key) {
         return headers.get(key);
+    }
+
+    public void setContentLength(int size) {
+        contentLength =  size;
+    }
+
+    public Integer getContentLength() {
+        return contentLength;
     }
 
     public void setBody(byte[] bodyInBytes) {

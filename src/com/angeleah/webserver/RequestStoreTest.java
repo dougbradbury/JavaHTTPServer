@@ -30,13 +30,13 @@ public class RequestStoreTest {
     @Test
     public void shouldHaveHeaders() {
         requestStore.setHeader("Content-Type", "text/html");
-        assertEquals("text/html", requestStore.header("Content-Type"));
+        assertEquals("text/html", requestStore.getheaders("Content-Type"));
     }
 
     @Test
     public void shouldBeAbleToSetMultipleHeaders() {
         requestStore.setHeader("Host", "localhost");
-        assertEquals("localhost", requestStore.header("Host"));
+        assertEquals("localhost", requestStore.getheaders("Host"));
     }
 
     @Test
@@ -44,8 +44,8 @@ public class RequestStoreTest {
         requestStore.setHeader("Content-Type", "text/html");
         requestStore.setHeader("Host", "localhost");
 
-        assertEquals("localhost", requestStore.header("Host"));
-        assertEquals("text/html", requestStore.header("Content-Type"));
+        assertEquals("localhost", requestStore.getheaders("Host"));
+        assertEquals("text/html", requestStore.getheaders("Content-Type"));
     }
 
     @Test
