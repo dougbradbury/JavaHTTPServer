@@ -43,7 +43,7 @@ public class RequestStore {
         protocolVersion = version;
     }
 
-    public String ProtocolVersion() {
+    public String getProtocolVersion() {
         return protocolVersion;
     }
 

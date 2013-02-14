@@ -32,7 +32,6 @@ public class ParamsHandlerTest {
         params.put("thing1", "12345");
         params.put("thing2", "987");
         params.put("name", "hello");
-        System.out.println(params);
         String body = builder.createHtmlBodyWithParamsContent(params);
         requestStore.setParams(params);
         paramsHandler.handle(requestStore);
