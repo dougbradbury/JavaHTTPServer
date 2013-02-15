@@ -2,9 +2,10 @@ package com.angeleah.webserver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.net.URLDecoder;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,9 +26,11 @@ public class RequestParser {
     public void processRequest(Reader inputStream) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(inputStream);
         parseInitialRequestLine(requestHeaders.remove(0));
-//        splitHeaders(requestHeaders);
+        parseHeadersIntoKeyValuePairs(requestHeaders);
 //        ? set header values in requeststore?
-//        getBody(); if no content length return null. That way I can say if body is !null
+//         if no content length
+//              set params to null. That way I can say if body is !null
+//        else readBody()
     }
 
     public ArrayList<String> readHeaders(Reader inputStream)throws IOException {
@@ -65,25 +68,61 @@ public class RequestParser {
         return requestStore;
     }
 
-    public void splitHeaders(ArrayList<String> headers) {
-         return;
+    public void parseHeadersIntoKeyValuePairs(ArrayList<String> headers) {
+        for (String line : headers) {
+            String[] parts = line.split(":");
+            requestStore.setHeader(parts[0], parts[1].trim());
+        }
     }
-}
 
-//    public void parseHeadersIntoKeyValuePairs(ArrayList<String> requestHeaders) {
-//        requestHeaders.
-////                requestheaders each do split on the space : space key [0], value [1]
-////
-////        figure out what I should set directly in the request store.
-//
+    public RequestStore readBody(Reader inputStream) throws IOException {
+        String params = new String();
+        params.concat(trimBlankLines(inputStream));
+        int offsetLength = params.length();
+        int remainingBodyLength = (requestStore.getContentLength() - offsetLength);
+        BufferedReader in = new BufferedReader(inputStream);
+        char[] chars = new char[remainingBodyLength];
+        in.read(chars, 0, remainingBodyLength);
+        params.concat(String.valueOf(chars));
+        byte[] bodyInBytes = params.getBytes();
+        requestStore.setBody(bodyInBytes);
+        return requestStore;
+    }
+
+     public String trimBlankLines(Reader inputStream) throws IOException {
+         BufferedReader in = new BufferedReader(inputStream);
+         String characters = new String();
+         boolean blank = true;
+          while (blank) {
+             String line = in.readLine();
+             if ((line != "") && (line != "\r") && (line != "\n")) {
+                 blank = false;
+             }
+         }
+         return characters;
+     }
+
+//    public String SeparateQueryStringParams() throws UnsupportedEncodingException {
+//        String route = requestStore.getRequestUri();
+//        String splitRoute[] =  route.split("\\?");
+//        int length = splitRoute.length;
+//        if(length == 1) return URLDecoder.decode(splitRouteAtAmpersand(splitRoute[0], length), "UTF-8");
+//        else {
+//            return URLDecoder.decode(splitRouteAtAmpersand(splitRoute[1], length), "UTF-8");
+//        }
 //    }
 //
-//    public String readBody(String s) throws IOException {
-//        int length = 0;
-//        try {
-//                } catch(NumberFormatException e) {}
-//            char[] chars = new char[length];
-//            in.read(chars, 0, length);
-//            return s + new String(chars);
-//        }
-//}
+//    public String splitRouteAtAmpersand(String route, int length) {
+//        String params[] = route.split("\\&");
+//        int i;
+//        String splitRoutes = "";
+//        for(i=0; i < params.length; i++) {
+//            if(length > 1) {
+//                splitRoutes += params[i];
+//                splitRoutes += "\n";
+//            }
+//        }
+//        return splitRoutes.replace("=", " = ");
+//    }
+}
+

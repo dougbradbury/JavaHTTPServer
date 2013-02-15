@@ -52,8 +52,12 @@ public class RequestStore {
         headers.put(key, value);
     }
 
-    public String getheaders(String key) {
+    public String getHeaders(String key) {
         return headers.get(key);
+    }
+
+    public HashMap<String,String> getAllHeaders(){
+        return headers;
     }
 
     public void setContentLength(int size) {

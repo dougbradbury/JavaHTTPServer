@@ -18,13 +18,6 @@ import java.util.ArrayList;
  */
 public class RequestParserTest {
 
-//    @Test
-//    public void testStringReader() throws IOException {
-//        StringReader in = new StringReader("HTTP/1.1 GET / \n");
-//        RequestParser requestReader = new RequestParser(in);
-//        requestReader.readHeaders(in);
-//    }
-
     @Test
     public void itShouldBeAbleToReadTheHeaders() throws IOException {
         StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
@@ -49,15 +42,15 @@ public class RequestParserTest {
         assertEquals("/", requestStore.getRequestUri());
     }
 
-//    @Test
-//    public void itShouldBeAbleToParseTheHeadersIntoKeyValuePairs() {
-//        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
-//        RequestStore requestStore = new RequestStore();
-//        RequestParser requestParser = new RequestParser(in, requestStore);
-//        ArrayList<String> headers = requestParser.readHeaders(in);
-//        String initialRequestLine = headers.remove(0);
-//        requestParser.parseHeadersIntoKeyValuePairs()
-//    }
+    @Test
+    public void itShouldBeAbleToParseTheHeadersIntoKeyValuePairs() throws IOException {
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        ArrayList<String> headers = requestParser.readHeaders(in);
+        String initialRequestLine = headers.remove(0);
+        requestParser.parseHeadersIntoKeyValuePairs(headers);
+    }
 
     @Test
     public void itShouldBeAbleToDetermineIfTheLineDoesNotContainTheContentLength() {
@@ -70,7 +63,7 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToDetermineIfTheLineDoesContainTheContentLength() {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         String line = "Content-Length: text/html";
@@ -78,12 +71,36 @@ public class RequestParserTest {
     }
 
     @Test
-    public void itShouldBeAbleToSetTheCOntentLength() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com\nContent-Length: 45");
+    public void itShouldBeAbleToSetTheContentLength() throws IOException {
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         requestParser.readHeaders(in);
         Integer length = 45;
         assertEquals(length, requestStore.getContentLength());
+    }
+
+    @Test
+    public void itShouldParseTheHeadersIntoKeyValuePairs() throws IOException {
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        ArrayList<String> requestHeaders = requestParser.readHeaders(in);
+        requestParser.parseInitialRequestLine(requestHeaders.remove(0));
+        requestParser.parseHeadersIntoKeyValuePairs(requestHeaders);
+        assertEquals("www.Superawesome.com", requestStore.getHeaders("Host"));
+    }
+
+    @Test
+    public void itShouldBeAbleToGetTheBodyIfThereIsOne() throws IOException {
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\r\n\r\nmy = data value1 = hello");
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        ArrayList<String> requestHeaders = requestParser.readHeaders(in);
+        requestParser.parseInitialRequestLine(requestHeaders.remove(0));
+        System.out.println(requestHeaders);
+        requestParser.readBody(in);
+        String body = "my = data value1 = hello";
+        assertEquals(body.getBytes(), requestStore.getParams());
     }
 }
