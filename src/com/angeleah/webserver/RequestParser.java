@@ -25,12 +25,34 @@ public class RequestParser {
 
     public void processRequest(Reader inputStream) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(inputStream);
-//        parseInitialRequestLine(requestHeaders.remove(0));
+        parseInitialRequestLine(requestHeaders.remove(0));
+        checkForQueryStringParams();
 //        parseHeadersIntoKeyValuePairs(requestHeaders);
 //        ? set header values in requeststore?
 //         if no content length
 //              set params to null. That way I can say if body is !null
 //        else readBody()
+    }
+
+    public void checkForQueryStringParams() {
+        String route = requestStore.getRequestUri();
+        if (route.contains("\\?")) {
+            String splitRoute[] =  route.split("\\?");
+            requestStore.setRequestUri(splitRoute[0]);
+            splitRouteAtAmpersand(splitRoute[1]);
+
+        }
+    }
+
+    public void splitRouteAtAmpersand(String route) {
+        HashMap params = new HashMap();
+        String queryStringParams[] = route.split("\\&");
+        int i;
+        for(i=0; i < queryStringParams.length; i++) {
+        String pairs[] = queryStringParams[i].split("=");
+             params.put(pairs[0],pairs[1]);
+        }
+        requestStore.setParams(params);
     }
 
     public ArrayList<String> readHeaders(Reader inputStream)throws IOException {
@@ -63,7 +85,7 @@ public class RequestParser {
     public RequestStore parseInitialRequestLine(String line) throws UnsupportedEncodingException {
         String[] parts = line.split(" ");
         requestStore.setMethod(parts[0]);
-        requestStore.setRequestUri(parts[1]);
+        requestStore.setRequestUri(decodeRequestUri(parts[1]));
         requestStore.setProtocolVersion(parts[2]);
         return requestStore;
     }
@@ -105,28 +127,5 @@ public class RequestParser {
          }
          return characters;
      }
-
-//    public String SeparateQueryStringParams() throws UnsupportedEncodingException {
-//        String route = requestStore.getRequestUri();
-//        String splitRoute[] =  route.split("\\?");
-//        int length = splitRoute.length;
-//        if(length == 1) return URLDecoder.decode(splitRouteAtAmpersand(splitRoute[0], length), "UTF-8");
-//        else {
-//            return URLDecoder.decode(splitRouteAtAmpersand(splitRoute[1], length), "UTF-8");
-//        }
-//    }
-//
-//    public String splitRouteAtAmpersand(String route, int length) {
-//        String params[] = route.split("\\&");
-//        int i;
-//        String splitRoutes = "";
-//        for(i=0; i < params.length; i++) {
-//            if(length > 1) {
-//                splitRoutes += params[i];
-//                splitRoutes += "\n";
-//            }
-//        }
-//        return splitRoutes.replace("=", " = ");
-//    }
 }
 

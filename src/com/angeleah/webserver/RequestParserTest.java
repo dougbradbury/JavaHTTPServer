@@ -10,6 +10,7 @@ import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,6 +63,18 @@ public class RequestParserTest {
         assertEquals("/form", requestParser.decodeRequestUri(uri));
     }
 
+    @Test
+    public void itShouldBeAbleToSplitTheParamsAtTheAmpersand(){
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com\n");
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        String queryStringParams = "my=data&cool=sweet";
+        requestParser.splitRouteAtAmpersand(queryStringParams);
+        HashMap expected = new HashMap();
+        expected.put("cool", "sweet" );
+        expected.put("my","data");
+        assertEquals(expected,requestStore.getParams());
+    }
 
     @Test
     public void itShouldBeAbleToParseTheHeadersIntoKeyValuePairs() throws IOException {
