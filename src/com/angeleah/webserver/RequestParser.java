@@ -25,8 +25,8 @@ public class RequestParser {
 
     public void processRequest(Reader inputStream) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(inputStream);
-        parseInitialRequestLine(requestHeaders.remove(0));
-        parseHeadersIntoKeyValuePairs(requestHeaders);
+//        parseInitialRequestLine(requestHeaders.remove(0));
+//        parseHeadersIntoKeyValuePairs(requestHeaders);
 //        ? set header values in requeststore?
 //         if no content length
 //              set params to null. That way I can say if body is !null
@@ -60,12 +60,16 @@ public class RequestParser {
         requestStore.setContentLength(length);
     }
 
-    public RequestStore parseInitialRequestLine(String line) {
+    public RequestStore parseInitialRequestLine(String line) throws UnsupportedEncodingException {
         String[] parts = line.split(" ");
         requestStore.setMethod(parts[0]);
         requestStore.setRequestUri(parts[1]);
         requestStore.setProtocolVersion(parts[2]);
         return requestStore;
+    }
+
+    public String decodeRequestUri(String uri)throws UnsupportedEncodingException {
+       return URLDecoder.decode(uri, "UTF-8");
     }
 
     public void parseHeadersIntoKeyValuePairs(ArrayList<String> headers) {
