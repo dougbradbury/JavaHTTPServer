@@ -8,7 +8,6 @@ import static junit.framework.Assert.assertTrue;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -78,17 +77,20 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToParseTheHeadersIntoKeyValuePairs() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> headers = requestParser.readHeaders(in);
         String initialRequestLine = headers.remove(0);
         requestParser.parseHeadersIntoKeyValuePairs(headers);
+        HashMap testHeaders = new HashMap();
+        testHeaders.put("Host", "www.Superawesome.com");
+        assertEquals(testHeaders, requestStore.getAllHeaders());
     }
 
     @Test
     public void itShouldBeAbleToDetermineIfTheLineDoesNotContainTheContentLength() {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com\n");
+        StringReader in = new StringReader("GET / HTTP/1.1\nHost : www.Superawesome.com\n");
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         String line = "Host : http://Superawesome.com";
@@ -127,14 +129,13 @@ public class RequestParserTest {
 
 //    @Test
 //    public void itShouldBeAbleToGetTheBodyIfThereIsOne() throws IOException {
-//        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\r\n\r\nmy = data value1 = hello");
+//        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\r\n\r\nmy = data value1 = hello\n");
 //        RequestStore requestStore = new RequestStore();
 //        RequestParser requestParser = new RequestParser(in, requestStore);
 //        ArrayList<String> requestHeaders = requestParser.readHeaders(in);
 //        requestParser.parseInitialRequestLine(requestHeaders.remove(0));
-//        System.out.println(requestHeaders);
 //        requestParser.readBody(in);
 //        String body = "my = data value1 = hello";
-//        assertEquals(body.getBytes(), requestStore.getParams());
+//        assertEquals(body.getBytes(), requestStore.getBody());
 //    }
 }

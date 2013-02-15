@@ -50,7 +50,7 @@ public class RequestParser {
         int i;
         for(i=0; i < queryStringParams.length; i++) {
         String pairs[] = queryStringParams[i].split("=");
-             params.put(pairs[0],pairs[1]);
+             params.put(pairs[0], pairs[1]);
         }
         requestStore.setParams(params);
     }
@@ -101,16 +101,37 @@ public class RequestParser {
         }
     }
 
+//    public RequestStore readRequestBody(Reader inputStream) throws IOException {
+//        BufferedReader in = new BufferedReader(inputStream);
+//        int c;
+//        StringBuilder response= new StringBuilder();
+//        while ((c = in.read()) != "") {
+//            response.append( (char)c ) ;
+//        }
+//        String result = response.toString();
+//        boolean blank = true;
+//          while (blank) {
+//             String line = in.readLine();
+//             if ((line != "") && (line != "\r") && (line != "\n")) {
+//                 blank = false;
+//             }
+//         }
+
+
+//    }
+
     public RequestStore readBody(Reader inputStream) throws IOException {
-        String params = new String();
-        params.concat(trimBlankLines(inputStream));
+        StringBuilder params = new StringBuilder();
+        params.append(trimBlankLines(inputStream));
+        System.out.println(params);
         int offsetLength = params.length();
         int remainingBodyLength = (requestStore.getContentLength() - offsetLength);
         BufferedReader in = new BufferedReader(inputStream);
         char[] chars = new char[remainingBodyLength];
         in.read(chars, 0, remainingBodyLength);
-        params.concat(String.valueOf(chars));
-        byte[] bodyInBytes = params.getBytes();
+        params.append(String.valueOf(chars));
+
+        byte[] bodyInBytes = params.toString().getBytes();
         requestStore.setBody(bodyInBytes);
         return requestStore;
     }
