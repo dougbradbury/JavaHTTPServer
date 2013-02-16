@@ -23,6 +23,10 @@ public class HtmlBodyBuilder {
         return createHtmlHeaderTags()+ createParagraphsToContainParams(content)+"</body>";
     }
 
+    public String createHtmlBodyWithRequestContent(String content) {
+        return createHtmlHeaderTags()+createParagraphsToContainRequestBody(content);
+    }
+
     public String createHtmlHeaderTags() {
         StringBuilder headerTagString = new StringBuilder();
           headerTagString.append("<!DOCTYPE html>\n");
@@ -54,5 +58,16 @@ public class HtmlBodyBuilder {
         }
     return paramsString.toString();
     }
+
+    public String createParagraphsToContainRequestBody(String requetContent) {
+        StringBuilder bodyContent = new StringBuilder();
+            bodyContent.append("<p>");
+            bodyContent.append(requetContent);
+            bodyContent.append("</p>\n");
+            bodyContent.append("</body>");
+        return bodyContent.toString();
+    }
+
+
 
 }

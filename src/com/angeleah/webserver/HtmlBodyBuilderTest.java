@@ -25,7 +25,7 @@ public class HtmlBodyBuilderTest {
         content.add("image.gif");
         assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<a href=\"/file1\">file1</a>\n<a href=\"/file2\">file2</a>\n<a href=\"/image.gif\">image.gif</a>\n</body>",
                 htmlBodyBuilder.createHtmlBodyWithDirectoryContents(content));
-    };
+    }
 
     @Test
     public void createHtmlBodyWithParamsContent() {
@@ -35,6 +35,12 @@ public class HtmlBodyBuilderTest {
         assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>value1 = 123456abcd</p>\n<p>value2 = hello</p>\n</body>",
                 htmlBodyBuilder.createHtmlBodyWithParamsContent(params));
 
-    };
+    }
 
+    @Test
+    public void createHtmlBodyWithRequestContent() {
+        String content = "my = data value1 = hello";
+        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>my = data value1 = hello</p>\n</body>", htmlBodyBuilder.createHtmlBodyWithRequestContent(content));
+
+    }
 }
