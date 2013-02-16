@@ -127,15 +127,21 @@ public class RequestParserTest {
         assertEquals("www.Superawesome.com", requestStore.getHeaders("Host"));
     }
 
-//    @Test
-//    public void itShouldBeAbleToGetTheBodyIfThereIsOne() throws IOException {
-//        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\r\n\r\nmy = data value1 = hello\n");
-//        RequestStore requestStore = new RequestStore();
-//        RequestParser requestParser = new RequestParser(in, requestStore);
-//        ArrayList<String> requestHeaders = requestParser.readHeaders(in);
-//        requestParser.parseInitialRequestLine(requestHeaders.remove(0));
-//        requestParser.readBody(in);
-//        String body = "my = data value1 = hello";
-//        assertEquals(body.getBytes(), requestStore.getBody());
-//    }
+    @Test public void itShouldBeAbleToDetectABlankLine() throws IOException {
+        StringReader in = new StringReader("\r\n\r\nmy = data value1 = hello\n");
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        assertEquals("m",requestParser.checkForBlankLines(in));
+    }
+
+    @Test
+    public void itShouldBeAbleToGetTheBodyFromTheRequestIfThereIsOne() throws IOException {
+        StringReader in = new StringReader("my = data value1 = hello\n");
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        Integer length = 24;
+        requestStore.setContentLength(length);
+        String body = "my = data value1 = hello";
+        assertEquals(body, requestParser.readRequestBody(in, length));
+    }
 }

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9639964e-0844-472c-8b40-9436b200a72d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestReaderTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStoreTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStoreTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="javaserver.iws" />
@@ -33,7 +32,7 @@
     <file path="/HeaderParserTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359735066407" ignored="false" />
     <file path="/HeaderParser.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360543567132" ignored="false" />
     <file path="/RequestStoreTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360897964225" ignored="false" />
-    <file path="/RequestStore.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360963531869" ignored="false" />
+    <file path="/RequestStore.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360991667788" ignored="false" />
     <file path="/a.dummy" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359661050169" ignored="false" />
     <file path="/ConnectionsTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359736951710" ignored="false" />
     <file path="/ConnectionTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359735407244" ignored="false" />
@@ -45,8 +44,8 @@
     <file path="/CharacterWriterTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360359033929" ignored="false" />
     <file path="/CharacterWriter.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360355747609" ignored="false" />
     <file path="/IndexHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360703784894" ignored="false" />
-    <file path="/RequestParser.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360963100760" ignored="false" />
-    <file path="/RequestParserTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360963748148" ignored="false" />
+    <file path="/RequestParser.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361036135480" ignored="false" />
+    <file path="/RequestParserTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361035460217" ignored="false" />
     <file path="/RequestReader.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360778484730" ignored="false" />
     <file path="/RequestReaderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360778455003" ignored="false" />
     <file path="/MimeTypeExtractor.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360700831564" ignored="false" />
@@ -135,22 +134,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RequestParser.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RequestParser.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="33" selection-start="4170" selection-end="4170" vertical-scroll-proportion="0.0">
+            <state line="125" column="5" selection-start="4599" selection-end="4599" vertical-scroll-proportion="1.8842105">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1951#1959#0" expanded="true" />
+                <element signature="e#2161#2169#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestParserTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RequestParserTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="64" selection-start="3942" selection-end="3942" vertical-scroll-proportion="0.4105263">
+            <state line="124" column="2" selection-start="5709" selection-end="5709" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#908#916#0" expanded="true" />
@@ -173,10 +172,10 @@
       <file leaf-file-name="RequestStore.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="5" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
+            <state line="114" column="47" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#395#411#0" expanded="true" />
-                <marker date="1360963545000" expanded="true" signature="1381:1462" placeholder="..." />
+                <marker date="1360991755000" expanded="true" signature="1413:1494" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -213,9 +212,9 @@
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HeaderParserTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStoreTest.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
       </list>
     </option>
   </component>
@@ -709,32 +708,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="33" selection-start="4170" selection-end="4170" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1951#1959#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="5" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
+        <state line="114" column="47" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#395#411#0" expanded="true" />
-            <marker date="1360963545000" expanded="true" signature="1381:1462" placeholder="..." />
+            <marker date="1360991755000" expanded="true" signature="1413:1494" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="64" selection-start="3942" selection-end="3942" vertical-scroll-proportion="0.4105263">
+        <state line="124" column="2" selection-start="5709" selection-end="5709" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#908#916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="5" selection-start="4599" selection-end="4599" vertical-scroll-proportion="1.8842105">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2161#2169#0" expanded="true" />
           </folding>
         </state>
       </provider>

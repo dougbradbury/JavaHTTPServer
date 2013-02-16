@@ -22,6 +22,7 @@ public class RequestStore {
     private String mimeType;
     public Integer contentLength;
     public HashMap params;
+    private String requestBody;
 
 
     public void setMethod(String methodValue) {
@@ -130,5 +131,13 @@ public class RequestStore {
 
     public HashMap getParams() {
         return params;
+    }
+
+    public void setRequestBody(String requestBody) {
+        this.requestBody = requestBody;
+    }
+
+    public String getRequestBody() {
+        return requestBody;
     }
 }

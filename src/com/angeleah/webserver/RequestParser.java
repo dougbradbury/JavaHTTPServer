@@ -23,15 +23,15 @@ public class RequestParser {
 
     }
 
-    public void processRequest(Reader inputStream) throws IOException {
+    public RequestStore processRequest(Reader inputStream) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(inputStream);
         parseInitialRequestLine(requestHeaders.remove(0));
         checkForQueryStringParams();
-//        parseHeadersIntoKeyValuePairs(requestHeaders);
-//        ? set header values in requeststore?
-//         if no content length
-//              set params to null. That way I can say if body is !null
-//        else readBody()
+        parseHeadersIntoKeyValuePairs(requestHeaders);
+        String bodyContent = checkForBlankLines(inputStream) + readRequestBody(inputStream, (requestStore.getContentLength() - 1));                 //wondering if it is a good idea to pull check for blank lines out to separate the input stream?
+        Integer length = requestStore.getContentLength();
+        requestStore.setRequestBody(bodyContent);
+        return requestStore;
     }
 
     public void checkForQueryStringParams() {
@@ -40,7 +40,6 @@ public class RequestParser {
             String splitRoute[] =  route.split("\\?");
             requestStore.setRequestUri(splitRoute[0]);
             splitRouteAtAmpersand(splitRoute[1]);
-
         }
     }
 
@@ -101,52 +100,29 @@ public class RequestParser {
         }
     }
 
-//    public RequestStore readRequestBody(Reader inputStream) throws IOException {
-//        BufferedReader in = new BufferedReader(inputStream);
-//        int c;
-//        StringBuilder response= new StringBuilder();
-//        while ((c = in.read()) != "") {
-//            response.append( (char)c ) ;
-//        }
-//        String result = response.toString();
-//        boolean blank = true;
-//          while (blank) {
-//             String line = in.readLine();
-//             if ((line != "") && (line != "\r") && (line != "\n")) {
-//                 blank = false;
-//             }
-//         }
-
-
-//    }
-
-    public RequestStore readBody(Reader inputStream) throws IOException {
-        StringBuilder params = new StringBuilder();
-        params.append(trimBlankLines(inputStream));
-        System.out.println(params);
-        int offsetLength = params.length();
-        int remainingBodyLength = (requestStore.getContentLength() - offsetLength);
+    public String readRequestBody(Reader inputStream, int length) throws IOException {
+        StringBuilder bodyContent = new StringBuilder();
         BufferedReader in = new BufferedReader(inputStream);
-        char[] chars = new char[remainingBodyLength];
-        in.read(chars, 0, remainingBodyLength);
-        params.append(String.valueOf(chars));
-
-        byte[] bodyInBytes = params.toString().getBytes();
-        requestStore.setBody(bodyInBytes);
-        return requestStore;
+        char[] chars = new char[length];
+        in.read(chars, 0, length);
+        bodyContent.append(chars);
+        return bodyContent.toString();
     }
 
-     public String trimBlankLines(Reader inputStream) throws IOException {
-         BufferedReader in = new BufferedReader(inputStream);
-         String characters = new String();
-         boolean blank = true;
-          while (blank) {
-             String line = in.readLine();
-             if ((line != "") && (line != "\r") && (line != "\n")) {
-                 blank = false;
-             }
-         }
-         return characters;
-     }
+    public String checkForBlankLines(Reader inputStream) throws IOException {
+        BufferedReader in = new BufferedReader(inputStream);
+        StringBuilder bodyCharacters = new StringBuilder();
+        boolean blank = true;
+        while (blank) {
+            StringBuilder c = new StringBuilder();
+            int character = in.read();
+            c.append((char) character) ;
+            if ((!c.toString().equals("\r")) && (!c.toString().equals("\n")) && (!c.toString().equals("")) && (!c.toString().equals(" "))) {
+                bodyCharacters.append(c.toString());
+                blank = false;
+            }
+        }
+        return bodyCharacters.toString();
+    }
 }
 
