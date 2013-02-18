@@ -20,7 +20,6 @@ public class IndexHandler implements RequestHandler {
 
     public RequestStore handle(RequestStore requestStore) {
         HtmlBodyBuilder htmlBodyBuilder = new HtmlBodyBuilder();
-
         ArrayList<String> dirContents = readDirectory(requestStore.getDirectory());
         String body = htmlBodyBuilder.createHtmlBodyWithDirectoryContents(dirContents);
         requestStore.setBody(convertBodyToByteArray(body));

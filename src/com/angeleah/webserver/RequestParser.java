@@ -20,16 +20,15 @@ public class RequestParser {
 
     public RequestParser(Reader inputStream, RequestStore requestStore) {
         this.requestStore = requestStore;
-
     }
 
     public RequestStore processRequest(Reader inputStream) throws IOException {
-        ArrayList<String> requestHeaders = readHeaders(inputStream);
+        BufferedReader in = new BufferedReader(inputStream);
+        ArrayList<String> requestHeaders = readHeaders(in);
         parseInitialRequestLine(requestHeaders.remove(0));
         checkForQueryStringParams();
         parseHeadersIntoKeyValuePairs(requestHeaders);
-        String bodyContent = checkForBlankLines(inputStream) + readRequestBody(inputStream, (requestStore.getContentLength() - 1));                 //wondering if it is a good idea to pull check for blank lines out to separate the input stream?
-        Integer length = requestStore.getContentLength();
+        String bodyContent = checkForBlankLines(in) + readRequestBody(in, (requestStore.getContentLength() - 1));
         requestStore.setRequestBody(bodyContent);
         return requestStore;
     }
@@ -54,8 +53,7 @@ public class RequestParser {
         requestStore.setParams(params);
     }
 
-    public ArrayList<String> readHeaders(Reader inputStream)throws IOException {
-        BufferedReader in = new BufferedReader(inputStream);
+    public ArrayList<String> readHeaders(BufferedReader in)throws IOException {
         ArrayList<String> data = new ArrayList<String>();
         String line = in.readLine();
 
@@ -100,17 +98,18 @@ public class RequestParser {
         }
     }
 
-    public String readRequestBody(Reader inputStream, int length) throws IOException {
+    public String readRequestBody(BufferedReader in, int length) throws IOException {
         StringBuilder bodyContent = new StringBuilder();
-        BufferedReader in = new BufferedReader(inputStream);
+        String test = "test";
         char[] chars = new char[length];
         in.read(chars, 0, length);
         bodyContent.append(chars);
         return bodyContent.toString();
+//        return test;
     }
 
-    public String checkForBlankLines(Reader inputStream) throws IOException {
-        BufferedReader in = new BufferedReader(inputStream);
+    public String checkForBlankLines(BufferedReader in) throws IOException {
+        String hello = "hello";
         StringBuilder bodyCharacters = new StringBuilder();
         boolean blank = true;
         while (blank) {
@@ -122,7 +121,7 @@ public class RequestParser {
                 blank = false;
             }
         }
-        return bodyCharacters.toString();
+//       return hello;
+       return bodyCharacters.toString();
     }
 }
-

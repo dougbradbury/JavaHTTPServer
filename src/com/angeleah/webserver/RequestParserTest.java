@@ -5,6 +5,7 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
@@ -21,19 +22,36 @@ import java.util.HashMap;
 public class RequestParserTest {
 
     @Test
+    public void itShouldBeAbleToParseARequest() throws IOException {
+        StringReader request = new StringReader("POST /form HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
+        BufferedReader in = new BufferedReader(request);
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        Integer length = 24;
+        requestParser.processRequest(in);
+        assertEquals("POST", requestStore.getMethod());
+        assertEquals("/form", requestStore.getRequestUri());
+        assertEquals("HTTP/1.1", requestStore.getProtocolVersion());
+        assertEquals(length, requestStore.getContentLength());
+       assertEquals("my = data value1 = hello", requestStore.getRequestBody());
+    }
+
+    @Test
     public void itShouldBeAbleToReadTheHeaders() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> headers = new ArrayList<String>();
         headers.add("GET / HTTP/1.1");
-        headers.add("Host : http://Superawesome.com");
+        headers.add("Host: www.Superawesome.com");
         assertEquals(headers,requestParser.readHeaders(in));
     }
 
     @Test
     public void itShouldBeAbleToParseTheInitialRequestLine() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> headers = requestParser.readHeaders(in);
@@ -46,7 +64,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToReturnARequestUriWhenItIsNotEncoded() throws UnsupportedEncodingException {
-       StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com\n");
+       StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\n");
+       BufferedReader in = new BufferedReader(request);
        RequestStore requestStore = new RequestStore();
        RequestParser requestParser = new RequestParser(in, requestStore);
        String uri = "/form";
@@ -55,7 +74,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToReturnARequestUriWhenItIsEncoded() throws UnsupportedEncodingException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com\n");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\n");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         String uri = "%2Fform";
@@ -64,7 +84,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToSplitTheParamsAtTheAmpersand(){
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : http://Superawesome.com\n");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\n");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         String queryStringParams = "my=data&cool=sweet";
@@ -77,7 +98,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToParseTheHeadersIntoKeyValuePairs() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> headers = requestParser.readHeaders(in);
@@ -90,7 +112,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToDetermineIfTheLineDoesNotContainTheContentLength() {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost : www.Superawesome.com\n");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost : www.Superawesome.com\n");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         String line = "Host : http://Superawesome.com";
@@ -99,7 +122,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToDetermineIfTheLineDoesContainTheContentLength() {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         String line = "Content-Length: text/html";
@@ -108,7 +132,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToSetTheContentLength() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         requestParser.readHeaders(in);
@@ -118,7 +143,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldParseTheHeadersIntoKeyValuePairs() throws IOException {
-        StringReader in = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
+        StringReader request = new StringReader("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> requestHeaders = requestParser.readHeaders(in);
@@ -128,7 +154,8 @@ public class RequestParserTest {
     }
 
     @Test public void itShouldBeAbleToDetectABlankLine() throws IOException {
-        StringReader in = new StringReader("\r\n\r\nmy = data value1 = hello\n");
+        StringReader request = new StringReader("\r\n\r\nmy = data value1 = hello\n");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         assertEquals("m",requestParser.checkForBlankLines(in));
@@ -136,7 +163,8 @@ public class RequestParserTest {
 
     @Test
     public void itShouldBeAbleToGetTheBodyFromTheRequestIfThereIsOne() throws IOException {
-        StringReader in = new StringReader("my = data value1 = hello\n");
+        StringReader request = new StringReader("my = data value1 = hello\n");
+        BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         Integer length = 24;
