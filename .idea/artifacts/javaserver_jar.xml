@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="javaserver:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/javaserver_jar</output-path>
+    <root id="archive" name="javaserver.jar">
+      <element id="module-output" name="javaserver" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../%JUNIT_HOME%/junit-4.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -18,12 +18,11 @@ public class RequestParser {
 
     public RequestStore requestStore;
 
-    public RequestParser(Reader inputStream, RequestStore requestStore) {
+    public RequestParser(BufferedReader in, RequestStore requestStore) {
         this.requestStore = requestStore;
     }
 
-    public RequestStore processRequest(Reader inputStream) throws IOException {
-        BufferedReader in = new BufferedReader(inputStream);
+    public RequestStore processRequest(BufferedReader in) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(in);
         parseInitialRequestLine(requestHeaders.remove(0));
         checkForQueryStringParams();
@@ -31,6 +30,22 @@ public class RequestParser {
         String bodyContent = checkForBlankLines(in) + readRequestBody(in, (requestStore.getContentLength() - 1));
         requestStore.setRequestBody(bodyContent);
         return requestStore;
+    }
+
+    public ArrayList<String> readHeaders(BufferedReader in)throws IOException {
+        ArrayList<String> data = new ArrayList<String>();
+        String line = in.readLine();
+
+        while ((line != null) && (!line.equals(""))) {
+            if (lineContainsContentLength(line)) {
+                setContentLength(line);
+                line = in.readLine();
+            } else {
+                data.add(line);
+                line = in.readLine();
+            }
+        }
+        return data;
     }
 
     public void checkForQueryStringParams() {
@@ -51,22 +66,6 @@ public class RequestParser {
              params.put(pairs[0], pairs[1]);
         }
         requestStore.setParams(params);
-    }
-
-    public ArrayList<String> readHeaders(BufferedReader in)throws IOException {
-        ArrayList<String> data = new ArrayList<String>();
-        String line = in.readLine();
-
-        while ((line != null) && (!line.equals(""))) {
-            if (lineContainsContentLength(line)) {
-                setContentLength(line);
-                line = in.readLine();
-            } else {
-                data.add(line);
-                line = in.readLine();
-            }
-        }
-        return data;
     }
 
     public boolean lineContainsContentLength(String line) {
