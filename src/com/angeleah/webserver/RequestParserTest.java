@@ -32,7 +32,7 @@ public class RequestParserTest {
         assertEquals("POST", requestStore.getMethod());
         assertEquals("/form", requestStore.getRequestUri());
         assertEquals("HTTP/1.1", requestStore.getProtocolVersion());
-        assertEquals(length, requestStore.getContentLength());
+        assertEquals(length, requestStore.getRequestContentLength());
        assertEquals("my = data value1 = hello", requestStore.getRequestBody());
     }
 
@@ -138,7 +138,7 @@ public class RequestParserTest {
         RequestParser requestParser = new RequestParser(in, requestStore);
         requestParser.readHeaders(in);
         Integer length = 45;
-        assertEquals(length, requestStore.getContentLength());
+        assertEquals(length, requestStore.getRequestContentLength());
     }
 
     @Test
@@ -169,7 +169,7 @@ public class RequestParserTest {
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         Integer length = 24;
-        requestStore.setContentLength(length);
+        requestStore.setRequestContentLength(length);
         String body = "my = data value1 = hello";
         assertEquals(body, requestParser.readRequestBody(in, length));
     }

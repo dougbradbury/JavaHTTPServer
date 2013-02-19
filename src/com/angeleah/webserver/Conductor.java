@@ -27,12 +27,13 @@ public class Conductor {
 
     public String handleRequest() throws IOException {
         RequestStore requestStore = new RequestStore();
-        RequestParser parser = new RequestParser(in, requestStore);
+//        RequestParser parser = new RequestParser(in, requestStore);
 //        RequestStore parsedData = parser.processRequest(in);
         //        MimeTypeExtractor typeExtractor = new MimeTypeExtractor();
 //                  Router router = new Router();
 //                RequestStore dataToBuildResponse = router.route(parsedData);
-        //        ResponseBuilder responseBuilder = new ResponseBuilder();
+
+        //        ResponseBuilder responseBuilder = new ResponseBuilder(date);
 //         byte[] response = responseBuilder.buildResponse(dataToBuildResponse);
 
         //then send the data to the router to be handled.(pass request store(and a mime type extractor? and return request store.

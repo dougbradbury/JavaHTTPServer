@@ -20,6 +20,7 @@ public class RequestStore {
     private String status;
     private String location;
     private String mimeType;
+    public Integer requestContentLength;
     public Integer contentLength;
     public HashMap params;
     private String requestBody;
@@ -59,6 +60,14 @@ public class RequestStore {
 
     public HashMap<String,String> getAllHeaders(){
         return headers;
+    }
+
+    public void setRequestContentLength(int reqContLength) {
+        requestContentLength =  reqContLength;
+    }
+
+    public Integer getRequestContentLength() {
+        return requestContentLength;
     }
 
     public void setContentLength(int size) {

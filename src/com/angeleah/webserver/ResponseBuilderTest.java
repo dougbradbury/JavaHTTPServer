@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
-
+import java.util.Date;
 import static junit.framework.Assert.assertEquals;
 
 
@@ -21,18 +21,15 @@ public class ResponseBuilderTest {
 
     public ResponseBuilder responseBuilder;
     public RequestStore requestStore;
+    public Date date;
 
     @Before
     public void setUp() {
         requestStore = new RequestStore();
-        responseBuilder = new ResponseBuilder(requestStore);
-
+        date = new  Date();
+        responseBuilder = new ResponseBuilder(requestStore, date);
     }
 
-//    @Test
-//    public void itShouldBeAbleToBuildAResponse() {
-//
-//    }
     public RequestStore testSetUp(String testRequest) throws IOException {
         StringReader request = new StringReader(testRequest);
         BufferedReader in = new BufferedReader(request);
@@ -45,10 +42,68 @@ public class ResponseBuilderTest {
         return requestStore;
     }
 
+    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
+        for (int i=0; i< b1.length; i++) {
+            if (b1[i] != b2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+//    @Test
+//    public void itShouldBeAbleToBuildAResponse() {
+//
+//    }
+
     @Test
-    public void itShouldIncludeTheProtocolVersion() throws IOException {
-        testSetUp("GET / HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
+    public void itShouldBeAbleToBuildTheHeaders() throws IOException {
+        testSetUp("GET / HTTP/1.1\nHost: www.Superawesome.com\n\r\n");
         requestStore.setOk();
-        assertEquals("HTTP/1.1 200 OK\r\n",responseBuilder.constructInitialResponseLine());
+        String stringResponse = "HTTP/1.1 200 OK\r\n";
+        byte[] b1 = stringResponse.getBytes();
+        byte[] b2 = responseBuilder.buildResponseHeaders(date);
+        assert(FileByteArrayCompare(b1, b2));
+    }
+
+    @Test
+        public void itShouldBeAbleToBuildTheBody() throws IOException {
+        String body = "my = data value1 = hello";
+        requestStore.setBody(body.getBytes());    //this seems like it is not testing.  How do I make sure that I am, read a file?
+        requestStore.setOk();
+        byte[] b1 = requestStore.getBody();
+        byte[] b2 = responseBuilder.buildResponseBody();
+        assert(FileByteArrayCompare(b1, b2));
+    }
+
+    @Test
+    public void itShouldIBeAbleToConstructTheInitialResponseLine() throws IOException {
+        testSetUp("GET / HTTP/1.1\nHost: www.Superawesome.com\n\r\n");
+        requestStore.setOk();
+        assertEquals("HTTP/1.1 200 OK\r\n",responseBuilder.buildInitialResponseLine());
+    }
+
+//    @Test
+//    public void itShouldBeAbleToConstructTheDateHeader(){
+//        Date date = new Date(2013, 2, 19, 13, 18, 13);
+//        assertEquals("Date: Tue, 19 Feb 2013 13:18:13 CST\r\n", responseBuilder.buildDateResponseLine(date));
+//    }
+
+    @Test
+    public void itShouldBeAbleToConstructTheLocationHeader(){
+        requestStore.setLocation("http://localhost:5000/");
+        assertEquals("Location: http://localhost:5000/\r\n", responseBuilder.buildLocationResponseLine());
+    }
+
+    @Test
+    public void itShouldBeAbleToConstructTheContentType(){
+        requestStore.setMimeType("text/html");
+        assertEquals("Content-Type: text/html\r\n", responseBuilder.buildContentTypeResponseLine());
+    }
+
+    @Test
+    public void itSHouldBeAbleToGetTheContentLength(){
+        requestStore.setContentLength(24);
+        assertEquals("Content-Length: 24\r\n", responseBuilder.buildContentLengthResponseLine());
     }
 }

@@ -27,8 +27,10 @@ public class RequestParser {
         parseInitialRequestLine(requestHeaders.remove(0));
         checkForQueryStringParams();
         parseHeadersIntoKeyValuePairs(requestHeaders);
-        String bodyContent = checkForBlankLines(in) + readRequestBody(in, (requestStore.getContentLength() - 1));
-        requestStore.setRequestBody(bodyContent);
+        if (requestStore.getRequestContentLength() != null) {
+            String bodyContent = checkForBlankLines(in) + readRequestBody(in, (requestStore.getRequestContentLength() - 1));
+            requestStore.setRequestBody(bodyContent);
+        }
         return requestStore;
     }
 
@@ -38,7 +40,7 @@ public class RequestParser {
 
         while ((line != null) && (!line.equals(""))) {
             if (lineContainsContentLength(line)) {
-                setContentLength(line);
+                setRequestContentLength(line);
                 line = in.readLine();
             } else {
                 data.add(line);
@@ -72,10 +74,10 @@ public class RequestParser {
         return line.contains("-Length: ");
     }
 
-    public void setContentLength(String line) {
+    public void setRequestContentLength(String line) {
         String[] parts = line.split(": ");
         Integer length = Integer.parseInt(parts[1]);
-        requestStore.setContentLength(length);
+        requestStore.setRequestContentLength(length);
     }
 
     public RequestStore parseInitialRequestLine(String line) throws UnsupportedEncodingException {
@@ -99,16 +101,13 @@ public class RequestParser {
 
     public String readRequestBody(BufferedReader in, int length) throws IOException {
         StringBuilder bodyContent = new StringBuilder();
-        String test = "test";
         char[] chars = new char[length];
         in.read(chars, 0, length);
         bodyContent.append(chars);
         return bodyContent.toString();
-//        return test;
     }
 
     public String checkForBlankLines(BufferedReader in) throws IOException {
-        String hello = "hello";
         StringBuilder bodyCharacters = new StringBuilder();
         boolean blank = true;
         while (blank) {
@@ -120,7 +119,6 @@ public class RequestParser {
                 blank = false;
             }
         }
-//       return hello;
        return bodyCharacters.toString();
     }
 }
