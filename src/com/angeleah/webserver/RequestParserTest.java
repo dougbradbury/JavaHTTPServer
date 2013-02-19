@@ -103,7 +103,7 @@ public class RequestParserTest {
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         ArrayList<String> headers = requestParser.readHeaders(in);
-        String initialRequestLine = headers.remove(0);
+        headers.remove(0);
         requestParser.parseHeadersIntoKeyValuePairs(headers);
         HashMap testHeaders = new HashMap();
         testHeaders.put("Host", "www.Superawesome.com");
@@ -116,7 +116,7 @@ public class RequestParserTest {
         BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
-        String line = "Host : http://Superawesome.com";
+        String line = "Host: http://Superawesome.com";
         assertFalse(requestParser.lineContainsContentLength(line));
     }
 
@@ -153,13 +153,14 @@ public class RequestParserTest {
         assertEquals("www.Superawesome.com", requestStore.getHeaders("Host"));
     }
 
-    @Test public void itShouldBeAbleToDetectABlankLine() throws IOException {
+    @Test public void itShouldBeAbleToReturnTheFirstCharacterAfterBlankLines() throws IOException {
         StringReader request = new StringReader("\r\n\r\nmy = data value1 = hello\n");
         BufferedReader in = new BufferedReader(request);
         RequestStore requestStore = new RequestStore();
         RequestParser requestParser = new RequestParser(in, requestStore);
         assertEquals("m",requestParser.checkForBlankLines(in));
     }
+
 
     @Test
     public void itShouldBeAbleToGetTheBodyFromTheRequestIfThereIsOne() throws IOException {
