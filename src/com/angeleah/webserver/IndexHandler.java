@@ -22,7 +22,7 @@ public class IndexHandler implements RequestHandler {
         HtmlBodyBuilder htmlBodyBuilder = new HtmlBodyBuilder();
         ArrayList<String> dirContents = readDirectory(requestStore.getDirectory());
         String body = htmlBodyBuilder.createHtmlBodyWithDirectoryContents(dirContents);
-        requestStore.setBody(convertBodyToByteArray(body));
+        requestStore.setBody(body.getBytes());
         requestStore.setOk();
         return requestStore;
     }
@@ -45,8 +45,8 @@ public class IndexHandler implements RequestHandler {
         return contents;
     }
 
-    public byte[] convertBodyToByteArray(String body) {
-        byte[] bodyByteArray = body.getBytes();
-        return bodyByteArray;
-    }
+//    public byte[] convertBodyToByteArray(String body) {
+//        byte[] bodyByteArray = body.getBytes();
+//        return bodyByteArray;
+//    }
 }

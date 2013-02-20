@@ -28,7 +28,8 @@ public class FileHandlerTest {
         RequestStore requestStore = new RequestStore();
         requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
         String body = "<p>This Page is awesome</p>";
-        fileHandler.handle(requestStore, "awesomePage.html");
+        requestStore.setRequestUri("awesomePage.html");
+        fileHandler.handle(requestStore);
         assertEquals("200", requestStore.getCode());
         assertEquals("OK",requestStore.getStatus());
         byte[] b1 = requestStore.getBody();

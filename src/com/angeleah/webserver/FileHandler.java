@@ -9,9 +9,9 @@ package com.angeleah.webserver;
  */
 public class FileHandler {
 
-    public RequestStore handle(RequestStore requestStore, String file) {
+    public RequestStore handle(RequestStore requestStore) {
         BinaryReader reader = new BinaryReader();
-        byte[] body = reader.read(requestStore.getDirectory(), file);
+        byte[] body = reader.read(requestStore.getDirectory(), requestStore.getRequestUri());
         requestStore.setBody(body);
         requestStore.setOk();
         return requestStore;

@@ -55,7 +55,7 @@ public class RequestParser {
         String route = requestStore.getRequestUri();
         if (route.contains("\\?")) {
             String splitRoute[] =  route.split("\\?");
-            requestStore.setRequestUri(splitRoute[0]);
+//            requestStore.setRequestUri(splitRoute[0]);
             splitRouteAtAmpersand(splitRoute[1]);
         }
     }

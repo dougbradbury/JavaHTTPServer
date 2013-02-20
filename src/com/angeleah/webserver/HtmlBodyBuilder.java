@@ -16,15 +16,15 @@ public class HtmlBodyBuilder {
     }
 
     public String createHtmlBodyWithDirectoryContents(ArrayList<String> content) {
-        return createHtmlHeaderTags()+createDirectoryLinks(content)+"</body>";
+        return createHtmlHeaderTags()+createDirectoryLinks(content)+createClosingTags();
     }
 
     public String createHtmlBodyWithParamsContent(Map<String, String> content) {
-        return createHtmlHeaderTags()+ createParagraphsToContainParams(content)+"</body>";
+        return createHtmlHeaderTags()+ createParagraphsToContainParams(content)+createClosingTags();
     }
 
     public String createHtmlBodyWithRequestContent(String content) {
-        return createHtmlHeaderTags()+createParagraphsToContainRequestBody(content);
+        return createHtmlHeaderTags()+createParagraphToContainRequestBody(content)+createClosingTags();
     }
 
     public String createHtmlHeaderTags() {
@@ -59,13 +59,19 @@ public class HtmlBodyBuilder {
     return paramsString.toString();
     }
 
-    public String createParagraphsToContainRequestBody(String requetContent) {
+    public String createParagraphToContainRequestBody(String requestContent) {
         StringBuilder bodyContent = new StringBuilder();
             bodyContent.append("<p>");
-            bodyContent.append(requetContent);
+            bodyContent.append(requestContent);
             bodyContent.append("</p>\n");
-            bodyContent.append("</body>");
         return bodyContent.toString();
+    }
+
+    public String createClosingTags() {
+        StringBuilder closingTags = new StringBuilder();
+        closingTags.append("</body>\n");
+        closingTags.append("</html>");
+        return closingTags.toString();
     }
 
 

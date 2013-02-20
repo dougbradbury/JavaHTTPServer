@@ -20,23 +20,23 @@ public class BinaryReaderTest {
     @Before
     public void SetUp() {
         reader = new BinaryReader();
-    };
+    }
 
     @Test
     public void itShouldBeAbleToReturnTheSizeOfABinaryFile() {
-        String file = "binary.dat";
-        String directory = "com/angeleah/webserver/";
+        String file = "/binary.dat";
+        String directory = "com/angeleah/webserver";
         byte[] data = reader.read(directory, file);
         assertEquals(4, data.length);
         assertEquals(1, data[0]);
-    };
+    }
 
     @Test
     public void itShouldBeAbleToReadARegularTextFile() {
-        String file = "textTest.txt";
-        String directory = "com/angeleah/webserver/";
+        String file = "/textTest.txt";
+        String directory = "com/angeleah/webserver";
         byte[] data = reader.read(directory, file);
         String fileContents = new String(data);
         assertEquals("Hello", fileContents);
-    };
+    }
 }

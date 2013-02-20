@@ -29,15 +29,15 @@ public class ParamsHandlerTest {
         RequestStore requestStore = new RequestStore();
         HtmlBodyBuilder builder = new HtmlBodyBuilder();
         HashMap params = new HashMap();
-        params.put("thing1", "12345");
-        params.put("thing2", "987");
-        params.put("name", "hello");
-        String body = builder.createHtmlBodyWithParamsContent(params);
+        params.put("variable_1", "123459876");
+        params.put("variable_2", "some_value");
         requestStore.setParams(params);
+        String body = builder.createHtmlBodyWithParamsContent(requestStore.getParams());
         paramsHandler.handle(requestStore);
+        assertEquals(body, "<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>variable_2 = some_value</p>\n<p>variable_1 = 123459876</p>\n</body>\n</html>");
         byte[] b1 = requestStore.getBody();
         byte[] b2 = body.getBytes();
-                assertEquals("200", requestStore.getCode());
+        assertEquals("200", requestStore.getCode());
         assertEquals("OK", requestStore.getStatus());
         assertEquals(true, paramsCompare(b1, b2));
     }

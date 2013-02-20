@@ -20,29 +20,37 @@ import java.io.Reader;
 public class Conductor {
 
     public BufferedReader in;
+    public RequestStore requestStore;
+    public String directory;
 
-    public Conductor(BufferedReader in) {
+    public Conductor(BufferedReader in, String directory) {
         this.in = in;
+        this.directory = directory;
+        RequestStore requestStore = new RequestStore(); //why is this never used?
     }
 
     public String conductTheProcess() throws IOException {
-          parseRequest(in);
+          requestStore.setDirectory(directory);
+          parseRequest(in, requestStore);
+//          routeRequest(requestStore.getRequestUri) //code I want to be there
+//          byte[] response = buildRequest(dataToBuildResponse);
 
-//                  Router router = new Router();
-//                RequestStore dataToBuildResponse = router.route(parsedData);
-
-        //        ResponseBuilder responseBuilder = new ResponseBuilder(date);
-//         byte[] response = responseBuilder.buildResponse(dataToBuildResponse);
-
-        //then send the data to the router to be handled.(pass request store(and a mime type extractor? and return request store.
         String response = "HTTP/1.0 200 OK\r\nDate: Fri, 31 Dec 1999 23:59:59 GMT\r\nContent-Type: text/html\r\nContent-Length: 1\r\n\r\nA\r\n";
         return response;
     }
 
-    public RequestStore parseRequest(BufferedReader input) throws IOException {
-        RequestStore requestStore = new RequestStore();
-        RequestParser parser = new RequestParser(input, requestStore);
+    public void parseRequest(BufferedReader input, RequestStore store) throws IOException {
+        RequestParser parser = new RequestParser(input, store);
         parser.processRequest(input);
-        return requestStore;
     }
+
+//    public void routeRequest(RequestStore requestStore) {
+//        Router router = new Router();
+//        router.route(requestStore);
+//    }
+
+//      public byte[] buildRequest() {
+          //        ResponseBuilder responseBuilder = new ResponseBuilder(date);
+//        return responseBuilder.buildResponse(dataToBuildResponse);
+//      }
 }

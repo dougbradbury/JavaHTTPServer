@@ -23,7 +23,7 @@ public class HtmlBodyBuilderTest {
         content.add("file1");
         content.add("file2");
         content.add("image.gif");
-        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<a href=\"/file1\">file1</a>\n<a href=\"/file2\">file2</a>\n<a href=\"/image.gif\">image.gif</a>\n</body>",
+        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<a href=\"/file1\">file1</a>\n<a href=\"/file2\">file2</a>\n<a href=\"/image.gif\">image.gif</a>\n</body>\n</html>",
                 htmlBodyBuilder.createHtmlBodyWithDirectoryContents(content));
     }
 
@@ -32,7 +32,7 @@ public class HtmlBodyBuilderTest {
         Map<String, String> params = new HashMap<String, String>();
         params.put("value1", "123456abcd");
         params.put("value2", "hello");
-        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>value1 = 123456abcd</p>\n<p>value2 = hello</p>\n</body>",
+        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>value1 = 123456abcd</p>\n<p>value2 = hello</p>\n</body>\n</html>",
                 htmlBodyBuilder.createHtmlBodyWithParamsContent(params));
 
     }
@@ -40,7 +40,7 @@ public class HtmlBodyBuilderTest {
     @Test
     public void createHtmlBodyWithRequestContent() {
         String content = "my = data value1 = hello";
-        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>my = data value1 = hello</p>\n</body>", htmlBodyBuilder.createHtmlBodyWithRequestContent(content));
+        assertEquals("<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<p>my = data value1 = hello</p>\n</body>\n</html>", htmlBodyBuilder.createHtmlBodyWithRequestContent(content));
 
     }
 }

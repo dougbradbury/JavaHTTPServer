@@ -13,6 +13,9 @@ import java.io.*;
 public class Connection {
 
     public static void main(String args[]) {
+
+        String directory = "com/angeleah/webserver/";  //parseDirectory(args);
+
         try {
 //            int port = Integer.parseInt(args[0]);
             ServerSocket serverSocket = new ServerSocket(5000);
@@ -20,9 +23,8 @@ public class Connection {
                 Socket client = serverSocket.accept();
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                Conductor conductor = new Conductor(in);
-                PrintWriter out = new PrintWriter(client.getOutputStream());
-                // need to use a buffered writer when writing the byte array
+                Conductor conductor = new Conductor(in, directory);
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
 
                 out.write(conductor.conductTheProcess());
 
@@ -36,7 +38,15 @@ public class Connection {
             System.err.println("Usage: java HttpMirror <port>");
         }
     }
+
+//    public static String parseDirectory(String[] args) {
+//
+//        return null;
+//    }
 }
+//(defn parse-directory [commands]
+//        (let [matches (re-find #"-d \S+" (vector-to-string commands))]
+//        (first(rest (str/split matches #" ")))))
 
 
 

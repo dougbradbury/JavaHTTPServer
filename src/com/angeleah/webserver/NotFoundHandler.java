@@ -11,7 +11,7 @@ public class NotFoundHandler {
 
     public RequestStore handle(RequestStore requestStore) {
           BinaryReader reader = new BinaryReader();
-          byte[] body = reader.read(requestStore.getDirectory(), "404.html");
+          byte[] body = reader.read(requestStore.getDirectory(), "/404.html");
           requestStore.setBody(body);
           requestStore.set404();
           return requestStore;

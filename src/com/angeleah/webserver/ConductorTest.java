@@ -15,10 +15,10 @@ import java.io.StringReader;
  */
 public class ConductorTest {
 
-    @Test
-    public void itShouldBeAbleToConductTheProcess() {
-        StringReader request = new StringReader("POST /form HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
-        BufferedReader bufferedReader = new BufferedReader(request);
-        Conductor conductor = new Conductor(bufferedReader);
-    }
+//    @Test
+//    public void itShouldBeAbleToConductTheProcess() {
+//        StringReader request = new StringReader("POST /form HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
+//        BufferedReader bufferedReader = new BufferedReader(request);
+//        Conductor conductor = new Conductor(bufferedReader);
+//    }
 }
