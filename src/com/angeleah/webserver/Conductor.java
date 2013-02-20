@@ -25,11 +25,9 @@ public class Conductor {
         this.in = in;
     }
 
-    public String handleRequest() throws IOException {
-        RequestStore requestStore = new RequestStore();
-        RequestParser parser = new RequestParser(in, requestStore);
-        RequestStore parsedData = parser.processRequest(in);
-        MimeTypeExtractor typeExtractor = new MimeTypeExtractor();
+    public String conductTheProcess() throws IOException {
+          parseRequest(in);
+
 //                  Router router = new Router();
 //                RequestStore dataToBuildResponse = router.route(parsedData);
 
@@ -39,5 +37,12 @@ public class Conductor {
         //then send the data to the router to be handled.(pass request store(and a mime type extractor? and return request store.
         String response = "HTTP/1.0 200 OK\r\nDate: Fri, 31 Dec 1999 23:59:59 GMT\r\nContent-Type: text/html\r\nContent-Length: 1\r\n\r\nA\r\n";
         return response;
+    }
+
+    public RequestStore parseRequest(BufferedReader input) throws IOException {
+        RequestStore requestStore = new RequestStore();
+        RequestParser parser = new RequestParser(input, requestStore);
+        parser.processRequest(input);
+        return requestStore;
     }
 }

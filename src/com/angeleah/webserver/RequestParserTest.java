@@ -153,6 +153,16 @@ public class RequestParserTest {
         assertEquals("www.Superawesome.com", requestStore.getHeaders("Host"));
     }
 
+    @Test
+    public void itShouldBeAbleToSetTheMimeType() throws IOException {
+        StringReader request = new StringReader("GET /image.gif HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 45");
+        BufferedReader in = new BufferedReader(request);
+        RequestStore requestStore = new RequestStore();
+        RequestParser requestParser = new RequestParser(in, requestStore);
+        requestParser.processRequest(in);
+        assertEquals("image/gif", requestStore.getMimeType());
+    }
+
     @Test public void itShouldBeAbleToReturnTheFirstCharacterAfterBlankLines() throws IOException {
         StringReader request = new StringReader("\r\n\r\nmy = data value1 = hello\n");
         BufferedReader in = new BufferedReader(request);

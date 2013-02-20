@@ -24,7 +24,7 @@ public class Connection {
                 PrintWriter out = new PrintWriter(client.getOutputStream());
                 // need to use a buffered writer when writing the byte array
 
-                out.write(conductor.handleRequest());
+                out.write(conductor.conductTheProcess());
 
                 out.close();
                 in.close();

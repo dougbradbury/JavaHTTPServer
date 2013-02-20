@@ -27,6 +27,7 @@ public class RequestParser {
         parseInitialRequestLine(requestHeaders.remove(0));
         checkForQueryStringParams();
         parseHeadersIntoKeyValuePairs(requestHeaders);
+        setMimeType(requestStore.getRequestUri());
         if (requestStore.getRequestContentLength() != null) {
             String bodyContent = checkForBlankLines(in) + readRequestBody(in, (requestStore.getRequestContentLength() - 1));
             requestStore.setRequestBody(bodyContent);
@@ -97,6 +98,12 @@ public class RequestParser {
             String[] parts = line.split(":");
             requestStore.setHeader(parts[0], parts[1].trim());
         }
+    }
+
+    public void setMimeType(String uri) {
+        MimeTypeExtractor typeExtractor = new MimeTypeExtractor();
+        String mimeType = typeExtractor.extractType(uri);
+        requestStore.setMimeType(mimeType);
     }
 
     public String readRequestBody(BufferedReader in, int length) throws IOException {

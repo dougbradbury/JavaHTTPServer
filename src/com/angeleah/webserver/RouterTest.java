@@ -18,11 +18,27 @@ public class RouterTest {
     public void SetUp() {
         router = new Router();
     }
+
+//    class TestHandler implements RequestHandler {
 //
+//        @Override
+//        public RequestStore handle(RequestStore requestStore) {
+//            //return dummy response
+//            return null;  //To change body of implemented methods use File | Settings | File Templates.
+//        }
+//    }
 //    @Test
 //    public void itShouldBeAbleToRegisterARoute() {
+//        Router router = new Router();
+//        router.register("/foo", new TestHandler());
 //
-//    }
+//        RequestStore request = new RequestStore();
+//        request.setRequestUri("/foo");
+//        RequestStore response = router.route(request);
+
+        //check response
+
+ //   }
 
 //    @Test
 //    public itShouldBeAbletoRouteToIndex() {
