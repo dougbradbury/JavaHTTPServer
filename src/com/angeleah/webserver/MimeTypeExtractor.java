@@ -9,39 +9,25 @@ package com.angeleah.webserver;
  */
 public class MimeTypeExtractor {
 
-    public String extractType(String path){
+    public String extractType(String pathExtension){
         String mimeType;
-        String pathExtension;
-        pathExtension = separateExtensionFromPath(path);
         if (pathExtension.equals(".txt")) {
             mimeType = "text/html";
-        } else if (pathExtension.equals(".gif")) {
+        } else if (pathExtension.contains(".gif")) {
             mimeType = "image/gif";
-        } else if (pathExtension.equals(".jpeg")) {
+        } else if (pathExtension.contains(".jpeg")) {
             mimeType = "image/jpeg";
-        }else if (pathExtension.equals(".jpe")) {
+        }else if (pathExtension.contains(".jpe")) {
             mimeType = "image/jpeg";
-        }else if (pathExtension.equals(".jpg")) {
+        }else if (pathExtension.contains(".jpg")) {
             mimeType = "image/jpeg" ;
-        }else if (pathExtension.equals("Jpeg")) {
+        }else if (pathExtension.contains("Jpeg")) {
             mimeType = "image/jpeg";
-        }else if (pathExtension.equals(".png")) {
+        }else if (pathExtension.contains(".png")) {
             mimeType = "image/png";
         } else {
             mimeType = "text/html";
         }
         return mimeType;
     }
-
-
-    public String separateExtensionFromPath (String path) {
-        String[] parts = path.split("\\.");
-        String extension;
-        if ( parts.length>1) {
-            extension = parts[1];
-        } else {
-            extension = path;
-        }
-        return extension;
-    };
 }

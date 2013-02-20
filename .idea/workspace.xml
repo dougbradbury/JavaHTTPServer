@@ -9,11 +9,10 @@
     <list default="true" id="9639964e-0844-472c-8b40-9436b200a72d" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/EchoServer.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilder.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractor.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractorTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractorTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilderTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
     </list>
     <ignored path="javaserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,8 +55,8 @@
     <file path="/RequestParserTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361311788669" ignored="false" />
     <file path="/RequestReader.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360778484730" ignored="false" />
     <file path="/RequestReaderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360778455003" ignored="false" />
-    <file path="/MimeTypeExtractor.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360700831564" ignored="false" />
-    <file path="/MimeTypeExtractorTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360700973526" ignored="false" />
+    <file path="/MimeTypeExtractor.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361377762366" ignored="false" />
+    <file path="/MimeTypeExtractorTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361377859822" ignored="false" />
     <file path="/NotFoundHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360708638396" ignored="false" />
     <file path="/NotFoundHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360708779358" ignored="false" />
     <file path="/404.html" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360704720745" ignored="false" />
@@ -80,11 +79,11 @@
     <file path="/RequestProcessor.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360857441825" ignored="false" />
     <file path="/RequestProcessorTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360862670896" ignored="false" />
     <file path="/formHnadler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361038881688" ignored="false" />
-    <file path="/RouterTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361040719550" ignored="false" />
+    <file path="/RouterTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361377194462" ignored="false" />
     <file path="/Router.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361040937707" ignored="false" />
     <file path="/main.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361041235169" ignored="false" />
     <file path="/ResponseBuilder.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361313592470" ignored="false" />
-    <file path="/ResponseBuilderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361314254841" ignored="false" />
+    <file path="/ResponseBuilderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361374797817" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,14 +147,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RequestParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
+      <file leaf-file-name="Conductor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="11" selection-start="890" selection-end="938" vertical-scroll-proportion="0.0">
+            <state line="31" column="8" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1292#1300#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MimeTypeExtractor.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="5" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.75409836">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MimeTypeExtractorTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="65" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +179,7 @@
       <file leaf-file-name="RequestStore.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="55" selection-start="2809" selection-end="2809" vertical-scroll-proportion="-11.692307">
+            <state line="133" column="55" selection-start="2809" selection-end="2809" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#395#411#0" expanded="true" />
               </folding>
@@ -171,44 +187,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseBuilderTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilderTest.java">
+      <file leaf-file-name="Router.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Router.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="130" selection-start="2131" selection-end="2131" vertical-scroll-proportion="0.66188526">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="13" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestParserTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java">
+      <file leaf-file-name="RouterTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="48" selection-start="712" selection-end="813" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1830#1838#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Conductor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="7" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResponseBuilder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="51" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0">
+            <state line="20" column="0" selection-start="370" selection-end="446" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -234,22 +225,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/formHnadler.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/main.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HttpServer.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Router.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilderTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractorTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractor.java" />
       </list>
     </option>
   </component>
@@ -626,9 +617,9 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.223099" sideWeight="0.68435013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19440459" sideWeight="0.68435013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39920425" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31564987" sideWeight="0.9986577" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31564987" sideWeight="0.9986577" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -694,60 +685,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="82" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HttpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16" selection-start="158" selection-end="209" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#500#508#0" expanded="true" />
-            <element signature="e#984#1000#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="230" selection-end="230" vertical-scroll-proportion="0.22727273">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="230" selection-end="230" vertical-scroll-proportion="0.22727273">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.26859504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="439" selection-end="439" vertical-scroll-proportion="0.3319672">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStoreTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="353" selection-end="353" vertical-scroll-proportion="-0.42857143">
@@ -771,44 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="7" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="55" selection-start="2809" selection-end="2809" vertical-scroll-proportion="-11.692307">
-          <folding>
-            <element signature="e#395#411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="48" selection-start="712" selection-end="813" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1830#1838#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="11" selection-start="890" selection-end="938" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1292#1300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="51" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.0">
@@ -820,10 +719,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ResponseBuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="130" selection-start="2131" selection-end="2131" vertical-scroll-proportion="0.66188526">
+        <state line="52" column="114" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.38709676">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="29" selection-start="587" selection-end="587" vertical-scroll-proportion="0.27526882">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1292#1300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="380" selection-end="380" vertical-scroll-proportion="0.31762296">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="19" selection-start="364" selection-end="415" vertical-scroll-proportion="0.46106556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="48" selection-start="712" selection-end="813" vertical-scroll-proportion="0.10526316">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1830#1838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="370" selection-end="446" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="8" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="55" selection-start="2809" selection-end="2809" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#395#411#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="65" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/MimeTypeExtractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="5" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.75409836">
+          <folding />
         </state>
       </provider>
     </entry>

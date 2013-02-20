@@ -24,12 +24,11 @@ public class MimeTypeExtractorTest {
 
     @Test
      public void separateExtensionFromPathIfExtensionExists(){
-        assertEquals("gif", mimeTypeExtractor.separateExtensionFromPath("image.gif"));
+        assertEquals("image/gif", mimeTypeExtractor.extractType("image.gif"));
     }
 
     @Test
     public void returnTheFileNameIfThereIsNoExtension(){
-        String path = new String ("file1");
-        assertEquals("file1", mimeTypeExtractor.separateExtensionFromPath(path));
+        assertEquals("text/html", mimeTypeExtractor.extractType("file1"));
     }
 }

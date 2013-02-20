@@ -50,11 +50,15 @@ public class ResponseBuilderTest {
         }
         return true;
     }
+//        these can not be properly tested without my router to handle the requests and set the body format properly.
+    @Test
+    public void itShouldBeAbleToBuildAResponse() throws IOException {
+        testSetUp("POST /form HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
+        requestStore.setOk();
 
-//    @Test
-//    public void itShouldBeAbleToBuildAResponse() {
-//
-//    }
+
+
+    }
 
     @Test
     public void itShouldBeAbleToBuildTheHeaders() throws IOException {
@@ -69,7 +73,7 @@ public class ResponseBuilderTest {
     @Test
         public void itShouldBeAbleToBuildTheBody() throws IOException {
         String body = "my = data value1 = hello";
-        requestStore.setBody(body.getBytes());    //this seems like it is not testing.  How do I make sure that I am, read a file?
+        requestStore.setBody(body.getBytes());
         requestStore.setOk();
         byte[] b1 = requestStore.getBody();
         byte[] b2 = responseBuilder.buildResponseBody();

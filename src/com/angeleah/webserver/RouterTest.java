@@ -18,6 +18,11 @@ public class RouterTest {
     public void SetUp() {
         router = new Router();
     }
+//
+//    @Test
+//    public void itShouldBeAbleToRegisterARoute() {
+//
+//    }
 
 //    @Test
 //    public itShouldBeAbletoRouteToIndex() {

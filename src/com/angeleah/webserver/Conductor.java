@@ -27,9 +27,9 @@ public class Conductor {
 
     public String handleRequest() throws IOException {
         RequestStore requestStore = new RequestStore();
-//        RequestParser parser = new RequestParser(in, requestStore);
-//        RequestStore parsedData = parser.processRequest(in);
-        //        MimeTypeExtractor typeExtractor = new MimeTypeExtractor();
+        RequestParser parser = new RequestParser(in, requestStore);
+        RequestStore parsedData = parser.processRequest(in);
+        MimeTypeExtractor typeExtractor = new MimeTypeExtractor();
 //                  Router router = new Router();
 //                RequestStore dataToBuildResponse = router.route(parsedData);
 
