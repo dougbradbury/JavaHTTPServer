@@ -7,7 +7,7 @@ package com.angeleah.webserver;
  * Time: 12:22 PM
  * To change this template use File | Settings | File Templates.
  */
-public class FormHandler {
+public class FormHandler implements RequestHandler{
 
     public RequestStore handle(RequestStore requestStore) {
         HtmlBodyBuilder builder = new HtmlBodyBuilder();

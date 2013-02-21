@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Time: 10:22 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ParamsHandler {
+public class ParamsHandler implements RequestHandler {
 
     public RequestStore handle(RequestStore requestStore) {
         HtmlBodyBuilder builder = new HtmlBodyBuilder();

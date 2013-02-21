@@ -1,7 +1,5 @@
 package com.angeleah.webserver;
 
-import java.io.BufferedReader;
-
 /**
  * Created with IntelliJ IDEA.
  * User: angeleah
@@ -11,32 +9,29 @@ import java.io.BufferedReader;
  */
 public class Router {
 
-    public RequestStore requestStore;
-
-    public Router(RequestStore requestStore) {
-        this.requestStore = requestStore;
+    public Router() {
     }
 //    public void register(String path, RequestHandler handler) {
 //
 //    }
 
-    public void routeRequest() {
+    public void routeRequest(RequestStore requestStore) {
         String path = requestStore.getRequestUri();
+        RequestHandler handler = getRequestHandlerForPath(path);
+        handler.handle(requestStore);
+    }
+
+    private RequestHandler getRequestHandlerForPath(String path) {
         if (path.equals("/")) {
-            IndexHandler indexHandler = new IndexHandler();
-            indexHandler.handle(requestStore);
+            return new IndexHandler();
         } else if (path.contains("?")) {
-            ParamsHandler paramsHandler = new ParamsHandler();
-            paramsHandler.handle(requestStore);
+            return new ParamsHandler();
         } else if (pathIsAFile(path)) {
-            FileHandler fileHandler = new FileHandler();
-            fileHandler.handle(requestStore);
+            return new FileHandler();
         } else if (path.equals("/form")) {
-             FormHandler formHandler = new FormHandler();
-             formHandler.handle(requestStore);
+            return new FormHandler();
         } else {
-            NotFoundHandler notFoundHandler = new NotFoundHandler();
-            notFoundHandler.handle(requestStore);
+            return new NotFoundHandler();
         }
     }
 

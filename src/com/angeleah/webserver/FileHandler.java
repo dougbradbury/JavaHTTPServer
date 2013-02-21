@@ -7,7 +7,7 @@ package com.angeleah.webserver;
  * Time: 3:14 PM
  * To change this template use File | Settings | File Templates.
  */
-public class FileHandler {
+public class FileHandler implements RequestHandler {
 
     public RequestStore handle(RequestStore requestStore) {
         BinaryReader reader = new BinaryReader();

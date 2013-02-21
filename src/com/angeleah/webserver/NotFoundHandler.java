@@ -7,7 +7,7 @@ package com.angeleah.webserver;
  * Time: 2:32 PM
  * To change this template use File | Settings | File Templates.
  */
-public class NotFoundHandler {
+public class NotFoundHandler implements RequestHandler{
 
     public RequestStore handle(RequestStore requestStore) {
           BinaryReader reader = new BinaryReader();

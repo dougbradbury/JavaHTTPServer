@@ -7,26 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9639964e-0844-472c-8b40-9436b200a72d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/EchoServer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/BinaryReaderTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/BinaryReaderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ConductorTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ConductorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ConnectionTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ConnectionTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandler.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandlerTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandlerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandlerTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandlerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/HttpServer.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/HttpServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandlerTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandlerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/Router.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/Router.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="javaserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,16 +58,16 @@
     <file path="/MimeTypeExtractor.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361377762366" ignored="false" />
     <file path="/MimeTypeExtractorTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361377859822" ignored="false" />
     <file path="/NotFoundHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360708638396" ignored="false" />
-    <file path="/NotFoundHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360708779358" ignored="false" />
+    <file path="/NotFoundHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361401943124" ignored="false" />
     <file path="/404.html" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360704720745" ignored="false" />
     <file path="/ImageHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360728510474" ignored="false" />
     <file path="/ImageHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360704090645" ignored="false" />
     <file path="/awesomePage.html" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360704481163" ignored="false" />
     <file path="/FileHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361390935913" ignored="false" />
-    <file path="/FileHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361390889676" ignored="false" />
+    <file path="/FileHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361401927702" ignored="false" />
     <file path="/RedirectHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360773215326" ignored="false" />
     <file path="/RedirectHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360729166824" ignored="false" />
-    <file path="/FormHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360772318328" ignored="false" />
+    <file path="/FormHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361401935905" ignored="false" />
     <file path="/FormHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361399008196" ignored="false" />
     <file path="/EchoBackHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360772904393" ignored="false" />
     <file path="/EchoHandlerTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360772893684" ignored="false" />
@@ -94,10 +80,11 @@
     <file path="/RequestProcessorTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360862670896" ignored="false" />
     <file path="/formHnadler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361038881688" ignored="false" />
     <file path="/RouterTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361399491460" ignored="false" />
-    <file path="/Router.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361397760848" ignored="false" />
+    <file path="/Router.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361402083422" ignored="false" />
     <file path="/main.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361041235169" ignored="false" />
     <file path="/ResponseBuilder.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361313592470" ignored="false" />
     <file path="/ResponseBuilderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361374797817" ignored="false" />
+    <file path="/ParamsHandler.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361401879643" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,10 +148,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RouterTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RouterTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="45" selection-start="3739" selection-end="3739" vertical-scroll-proportion="0.0">
+            <state line="90" column="40" selection-start="3566" selection-end="3566" vertical-scroll-proportion="2.0243363">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,7 +162,7 @@
       <file leaf-file-name="NotFoundHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="67" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
+            <state line="9" column="54" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -216,16 +203,34 @@
       <file leaf-file-name="FormHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+            <state line="9" column="50" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Router.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Router.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Router.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="873" selection-end="873" vertical-scroll-proportion="0.58947366">
+            <state line="16" column="86" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FileHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="50" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParamsHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="63" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -249,9 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java" />
@@ -259,12 +261,15 @@
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ConductorTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/BinaryReaderTest.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FileHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Router.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
       </list>
     </option>
   </component>
@@ -731,13 +736,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/BinaryReaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="24" selection-start="933" selection-end="933" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="13" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
@@ -750,13 +748,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="24" selection-start="773" selection-end="773" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -776,13 +767,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,26 +822,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="63" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="50" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FormHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="50" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="67" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
+        <state line="9" column="54" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="86" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="45" selection-start="3739" selection-end="3739" vertical-scroll-proportion="0.0">
+        <state line="90" column="40" selection-start="3566" selection-end="3566" vertical-scroll-proportion="2.0243363">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="873" selection-end="873" vertical-scroll-proportion="0.58947366">
-          <folding />
         </state>
       </provider>
     </entry>
