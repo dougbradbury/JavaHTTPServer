@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9639964e-0844-472c-8b40-9436b200a72d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -40,7 +41,7 @@
     <file path="/a.dummy" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359661050169" ignored="false" />
     <file path="/ConnectionsTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1359736951710" ignored="false" />
     <file path="/ConnectionTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361385550402" ignored="false" />
-    <file path="/Connection.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361474570137" ignored="false" />
+    <file path="/Connection.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1361548111782" ignored="false" />
     <file path="/BinaryReaderTest.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360702088853" ignored="false" />
     <file path="/BinaryReader.java" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360702029183" ignored="false" />
     <file path="/textTest.txt" changelist="9639964e-0844-472c-8b40-9436b200a72d" time="1360265014683" ignored="false" />
@@ -146,79 +147,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Connection.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Connection.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="125" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
+            <state line="18" column="31" selection-start="495" selection-end="495" vertical-scroll-proportion="0.56842107">
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="http_browser.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec/fixtures/http_browser.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="9" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="102" selection-start="2440" selection-end="2440" vertical-scroll-proportion="-39.807693">
-              <folding>
-                <element signature="e#2501#2516#0" expanded="true" />
-                <element signature="e#2831#2846#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="115" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1061#1069#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HtmlBodyBuilder.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="36" selection-start="1592" selection-end="1592" vertical-scroll-proportion="0.5081967">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestParserTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="76" selection-start="4560" selection-end="4560" vertical-scroll-proportion="-14.384615">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1830#1838#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestStore.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestStore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="21" selection-start="2688" selection-end="2710" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#416#432#0" expanded="true" />
-                <element signature="e#786#801#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -242,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/NotFoundHandlerTest.java" />
@@ -255,8 +188,9 @@
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParserTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java" />
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec/fixtures/http_browser.rb" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java" />
       </list>
     </option>
@@ -423,7 +357,7 @@
       <recent name="$PROJECT_DIR$/src/com/angeleah/webserver" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Connection">
+  <component name="RunManager" selected="JUnit.AllTests">
     <configuration default="false" name="Connection" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -724,13 +658,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/FileHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="18" selection-start="33" selection-end="84" vertical-scroll-proportion="0.06147541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ConductorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
@@ -825,15 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="115" selection-start="908" selection-end="908" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1061#1069#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec/fixtures/http_browser.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="9" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
@@ -841,18 +759,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java">
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="125" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
+        <state line="25" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#500#508#0" expanded="true" />
+            <element signature="e#993#1009#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HtmlBodyBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="36" selection-start="1592" selection-end="1592" vertical-scroll-proportion="0.5081967">
+        <state line="87" column="5" selection-start="3049" selection-end="3049" vertical-scroll-proportion="0.7741935">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/IndexHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="85" selection-start="540" selection-end="540" vertical-scroll-proportion="0.1352459">
+          <folding>
+            <element signature="e#1061#1069#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="31" selection-start="495" selection-end="495" vertical-scroll-proportion="0.56842107">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

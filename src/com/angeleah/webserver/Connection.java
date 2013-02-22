@@ -16,6 +16,7 @@ public class Connection {
 
         String directory = "/Users/angeleah/Development/8th_light_apprenticeship/javaserver/src/com/angeleah/webserver/cob_spec/public/";  //parseDirectory(args);
 
+        System.out.println(args);
         try {
 //            int port = Integer.parseInt(args[0]);
             ServerSocket serverSocket = new ServerSocket(5000);
