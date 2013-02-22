@@ -7,7 +7,7 @@ package com.angeleah.webserver;
  * Time: 4:07 PM
  * To change this template use File | Settings | File Templates.
  */
-public class RedirectHandler {
+public class RedirectHandler implements RequestHandler{
 
     public RequestStore handle(RequestStore requestStore) {
         requestStore.setRedirect();

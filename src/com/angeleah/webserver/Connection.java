@@ -14,7 +14,7 @@ public class Connection {
 
     public static void main(String args[]) {
 
-        String directory = "com/angeleah/webserver/";  //parseDirectory(args);
+        String directory = "/Users/angeleah/Development/8th_light_apprenticeship/cob_spec/public/";  //parseDirectory(args);
 
         try {
 //            int port = Integer.parseInt(args[0]);
@@ -24,9 +24,15 @@ public class Connection {
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 Conductor conductor = new Conductor(in, directory);
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+//                BufferedWriter out = new BufferedWriter((new OutputStreamWriter(client.getOutputStream())));
+//                OutputStream out = new DataOutputStream(client.getOutputStream());
+                DataOutputStream out= new DataOutputStream(client.getOutputStream());
+                byte[] response = conductor.conductTheProcess();
+                int length = response.length;
+                out.write(response, 0, length);
 
-                out.write(conductor.conductTheProcess());
+//                String response = conductor.conductTheProcess();
+//                out.write(response);
 
                 out.close();
                 in.close();
@@ -35,6 +41,7 @@ public class Connection {
         }
         catch (Exception e) {
             System.err.println(e);
+            e.printStackTrace();
             System.err.println("Usage: java HttpMirror <port>");
         }
     }

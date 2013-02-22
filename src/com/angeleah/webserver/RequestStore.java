@@ -10,20 +10,20 @@ import java.util.HashMap;
  * To change this template use File | Settings | File Templates.
  */
 public class RequestStore {
-    private String method;
-    private String requestUri;
-    private String protocolVersion;
+    private String method = null;
+    private String requestUri = null;
+    private String protocolVersion = null;
     private HashMap<String, String> headers = new HashMap<String, String>();
-    private byte[] body;
-    private String directory;
-    private String code;
-    private String status;
-    private String location;
-    private String mimeType;
-    public Integer requestContentLength;
-    public Integer contentLength;
-    public HashMap params;
-    private String requestBody;
+    private byte[] body = null;
+    private String directory = null;
+    private String code = null;
+    private String status = null;
+    private String location = null;
+    private String mimeType = null;
+    public Integer requestContentLength = null;
+    public Integer contentLength = null;
+    public HashMap<String,String> params = new HashMap<String,String>();
+    private String requestBody = null;
 
 
     public void setMethod(String methodValue) {
@@ -134,7 +134,7 @@ public class RequestStore {
         return mimeType;
     }
 
-    public void setParams(HashMap paramsMap) {
+    public void setParams(HashMap<String,String> paramsMap) {
         params = paramsMap;
     }
 

@@ -25,7 +25,10 @@ public class RequestParser {
     public RequestStore processRequest(BufferedReader in) throws IOException {
         ArrayList<String> requestHeaders = readHeaders(in);
         parseInitialRequestLine(requestHeaders.remove(0));
-        checkForQueryStringParams();
+        if (checkForQueryStringParams()) {
+            String params = splitOffQueryStringParams();
+            processQueryStringParams(params);
+        }
         parseHeadersIntoKeyValuePairs(requestHeaders);
         setMimeType(requestStore.getRequestUri());
         if (requestStore.getRequestContentLength() != null) {
@@ -51,24 +54,42 @@ public class RequestParser {
         return data;
     }
 
-    public void checkForQueryStringParams() {
+    public boolean checkForQueryStringParams() {
         String route = requestStore.getRequestUri();
-        if (route.contains("\\?")) {
-            String splitRoute[] =  route.split("\\?");
-//            requestStore.setRequestUri(splitRoute[0]);
-            splitRouteAtAmpersand(splitRoute[1]);
+        if (route.contains("?")) {
+            return true;
+        }
+        else {
+         return false;
         }
     }
 
-    public void splitRouteAtAmpersand(String route) {
-        HashMap params = new HashMap();
-        String queryStringParams[] = route.split("\\&");
+    public String splitOffQueryStringParams() {
+        String path = requestStore.getRequestUri();
+        String[] parts = path.split("\\?");
+        return (parts[1]);
+    }
+
+    public void processQueryStringParams(String params) throws UnsupportedEncodingException {
+        if (params.contains("&")) {
+            splitRouteAtAmpersand(params);
+        } else {
+            HashMap<String,String> splitParams = new HashMap<String,String>();
+            String pairs[] = params.split("=");
+            splitParams.put(decodeRequestUri(pairs[0]) , decodeRequestUri(pairs[1]));
+            requestStore.setParams(splitParams);
+        }
+    }
+
+    public void splitRouteAtAmpersand(String params) {
+        HashMap<String,String> splitParams = new HashMap<String,String>();
+        String queryStringParams[] = params.split("&");
         int i;
         for(i=0; i < queryStringParams.length; i++) {
         String pairs[] = queryStringParams[i].split("=");
-             params.put(pairs[0], pairs[1]);
+            splitParams.put(pairs[0], pairs[1]);
         }
-        requestStore.setParams(params);
+        requestStore.setParams(splitParams);
     }
 
     public boolean lineContainsContentLength(String line) {
@@ -84,7 +105,7 @@ public class RequestParser {
     public RequestStore parseInitialRequestLine(String line) throws UnsupportedEncodingException {
         String[] parts = line.split(" ");
         requestStore.setMethod(parts[0]);
-        requestStore.setRequestUri(decodeRequestUri(parts[1]));
+        requestStore.setRequestUri(parts[1]);
         requestStore.setProtocolVersion(parts[2]);
         return requestStore;
     }

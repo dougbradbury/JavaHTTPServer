@@ -14,6 +14,7 @@ public class FormHandler implements RequestHandler{
         String content = requestStore.getRequestBody();
         String body = builder.createHtmlBodyWithRequestContent(content);
         requestStore.setBody(body.getBytes());
+        requestStore.setContentLength(body.length());
         requestStore.setOk();
         return requestStore;
     }

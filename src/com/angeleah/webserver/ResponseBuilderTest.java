@@ -51,14 +51,19 @@ public class ResponseBuilderTest {
         return true;
     }
 //        these can not be properly tested without my router to handle the requests and set the body format properly.
-    @Test
-    public void itShouldBeAbleToBuildAResponse() throws IOException {
-        testSetUp("POST /form HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
-        requestStore.setOk();
-
-
-
-    }
+//    @Test
+//    public void itShouldBeAbleToBuildAResponse() throws IOException {
+//        testSetUp("POST /form HTTP/1.1\nHost: www.Superawesome.com\nContent-Length: 24\n\r\nmy = data value1 = hello\n");
+//        requestStore.setOk();
+//        String stringResponse = "HTTP/1.1 200 OK\r\n";
+//        String stringResponse2 = "cool";
+//        byte[] b1 = stringResponse.getBytes();
+//
+//        byte[] b2 = responseBuilder.buildResponseHeaders(date);
+//        assert(FileByteArrayCompare(b1, b2));
+//
+//
+//    }
 
     @Test
     public void itShouldBeAbleToBuildTheHeaders() throws IOException {

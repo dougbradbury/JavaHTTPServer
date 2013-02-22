@@ -28,21 +28,31 @@ public class ResponseBuilder {
         return formattedDate;
     }
 
-//    public byte[] buildResponse(Date date) {
-//        byte[] headerResponse = buildResponseHeaders();
-//    if the body is not null, get the
-//            byte[] bodyResponse = buildResponseBody();
-//        byte[] completeResponse = new byte[headerResponse.length + bodyResponse.length];
-//        return completeResponse;
-//    }
-//
+    public byte[] buildResponse(Date date) {
+        byte[] headerResponse = buildResponseHeaders(date);
+        if (requestStore.getBody() != null) {
+            byte[] bodyResponse = buildResponseBody();
+            return combinedHeadersAndBodyArray(headerResponse, bodyResponse);
+        } else {
+            return headerResponse;
+        }
+    }
+
+    public byte[] combinedHeadersAndBodyArray(byte[] headers, byte[] body) {
+        byte[] response = new byte[headers.length + body.length];
+        for (int i = 0; i < response.length; i++) {
+            response[i] = i < headers.length ? headers[i] : body[i - headers.length];
+        }
+        return response;
+    }
+
     public byte[] buildResponseHeaders(Date date){
         StringBuilder headerResponse = new StringBuilder();
         headerResponse.append(buildInitialResponseLine());
         headerResponse.append(buildDateResponseLine(date));
         if (requestStore.getCode().equals("302")) {
             headerResponse.append(buildLocationResponseLine());
-        } else if (requestStore.getRequestContentLength() != null) {
+        } else if (requestStore.getBody() != null) {
             headerResponse.append(buildContentTypeResponseLine());
             headerResponse.append(buildContentLengthResponseLine());
         }
@@ -72,6 +82,8 @@ public class ResponseBuilder {
         line.append(" ");
         line.append(value);
         line.append("\r\n");
+//        System.out.println(line.toString());
+
         return line.toString();
     }
 
@@ -84,17 +96,11 @@ public class ResponseBuilder {
     }
 
     public String buildContentLengthResponseLine(){
-        return buildLine("Content-Length", requestStore.getContentLength().toString());
+        return buildLine("Content-Length", (requestStore.getContentLength().toString()));
     }
 
     public String buildLocationResponseLine() {
         return buildLine("Location", requestStore.getLocation());
     }
-
-//    public byte[] buildBodyResponse(){
-//
-//    }
-
-
 }
 

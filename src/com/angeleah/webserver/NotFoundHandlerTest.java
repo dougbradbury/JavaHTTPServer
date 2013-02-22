@@ -28,8 +28,8 @@ public class NotFoundHandlerTest {
     @Test
     public void itShouldbeAbleToHandleA404Properly() {
         RequestStore requestStore = new RequestStore();
-        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
-        String body = "<h1>Not Found</h1>";
+//        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
+        String body ="<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<h1>Not Found</h1>\n</body>\n</html>";
         notFoundHandler.handle(requestStore);
         byte[] b1 = requestStore.getBody();
         byte[] b2 = body.getBytes();

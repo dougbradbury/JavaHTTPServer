@@ -13,6 +13,7 @@ public class FileHandler implements RequestHandler {
         BinaryReader reader = new BinaryReader();
         byte[] body = reader.read(requestStore.getDirectory(), requestStore.getRequestUri());
         requestStore.setBody(body);
+        requestStore.setContentLength(body.length);
         requestStore.setOk();
         return requestStore;
     }

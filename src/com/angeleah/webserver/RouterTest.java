@@ -85,11 +85,11 @@ public class RouterTest {
     @Test
     public void itShouldBeABleToNotFindingSomething(){
         RequestStore requestStore = new RequestStore();
-        requestStore.setDirectory("com/angeleah/webserver/TestDirectory");
+//        requestStore.setDirectory("com/angeleah/webserver/TestDirectory");
         requestStore.setRequestUri("/coolawesomesweetness");
         Router router = new Router();
         router.routeRequest(requestStore);
-        String body = "<h1>Not Found</h1>";
+        String body ="<!DOCTYPE html>\n<title>Web Server</title>\n<body>\n<h1>Not Found</h1>\n</body>\n</html>";
         byte[] b1 = body.getBytes();
         byte[] b2 = requestStore.getBody();
         assert(FileByteArrayCompare(b1, b2));

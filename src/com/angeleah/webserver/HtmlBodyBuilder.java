@@ -16,15 +16,19 @@ public class HtmlBodyBuilder {
     }
 
     public String createHtmlBodyWithDirectoryContents(ArrayList<String> content) {
-        return createHtmlHeaderTags()+createDirectoryLinks(content)+createClosingTags();
+        return createHtmlHeaderTags() + createDirectoryLinks(content) + createClosingTags();
     }
 
     public String createHtmlBodyWithParamsContent(Map<String, String> content) {
-        return createHtmlHeaderTags()+ createParagraphsToContainParams(content)+createClosingTags();
+        return createHtmlHeaderTags() + createParagraphsToContainParams(content) + createClosingTags();
     }
 
     public String createHtmlBodyWithRequestContent(String content) {
-        return createHtmlHeaderTags()+createParagraphToContainRequestBody(content)+createClosingTags();
+        return createHtmlHeaderTags() + createParagraphToContainRequestBody(content) + createClosingTags();
+    }
+
+    public String createHtmlNotFoundBody() {
+        return createHtmlHeaderTags() + buildNotFound() + createClosingTags();
     }
 
     public String createHtmlHeaderTags() {
@@ -47,6 +51,15 @@ public class HtmlBodyBuilder {
     return linkTagString.toString();
     }
 
+    public String createBodyContents(ArrayList<String> contents) {
+        StringBuilder body =  new StringBuilder();
+        for (String item : contents) {
+            body.append("");
+            body.append(item);
+        }
+        return body.toString();
+    }
+
     public String createParagraphsToContainParams(Map<String, String> params) {
         StringBuilder paramsString = new StringBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -64,6 +77,14 @@ public class HtmlBodyBuilder {
             bodyContent.append("<p>");
             bodyContent.append(requestContent);
             bodyContent.append("</p>\n");
+        return bodyContent.toString();
+    }
+
+    public String buildNotFound() {
+        StringBuilder bodyContent = new StringBuilder();
+        bodyContent.append("<h1>");
+        bodyContent.append("Not Found");
+        bodyContent.append("</h1>\n");
         return bodyContent.toString();
     }
 

@@ -26,6 +26,8 @@ public class Router {
             return new IndexHandler();
         } else if (path.contains("?")) {
             return new ParamsHandler();
+        } else if (path.equals("/redirect")) {
+            return new RedirectHandler();
         } else if (pathIsAFile(path)) {
             return new FileHandler();
         } else if (path.equals("/form")) {
@@ -36,7 +38,7 @@ public class Router {
     }
 
     public boolean pathIsAFile(String path) {
-        if ((path.equals("file1")) || (path.equals("file2")) || (path.contains("txt")) | (path.contains("html")) || (path.contains("jpeg")) || (path.contains("png")) || (path.contains("gif"))) {
+        if ((path.contains("file1")) || (path.contains("file2")) || (path.contains("txt")) | (path.contains("html")) || (path.contains("jpeg")) || (path.contains("png")) || (path.contains("gif"))) {
             return true;
         } else {
             return false;

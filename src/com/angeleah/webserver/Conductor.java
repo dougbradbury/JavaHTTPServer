@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,16 +27,27 @@ public class Conductor {
     public Conductor(BufferedReader in, String directory) {
         this.in = in;
         this.directory = directory;
-        RequestStore requestStore = new RequestStore(); //why is this never used?
     }
 
-    public String conductTheProcess() throws IOException {
-          requestStore.setDirectory(directory);
-          parseRequest(in, requestStore);
-//          routeRequest(requestStore.getRequestUri) //code I want to be there
-//          byte[] response = buildRequest(dataToBuildResponse);
+//    public byte[] conductTheProcess() throws IOException {
+//          String line = in.readLine();
+////        String response =  "HTTP/1.0 200 OK\r\nDate: Fri, 31 Dec 1999 23:59:59 GMT\r\nContent-Type: text/html\r\nContent-Length: 1\r\n\r\nA\r\n";
+//        String response = line + "\n\r\n<h1>A</h1>";
+////        return response.getBytes();
+//        return response.getBytes();
+//    }
 
-        String response = "HTTP/1.0 200 OK\r\nDate: Fri, 31 Dec 1999 23:59:59 GMT\r\nContent-Type: text/html\r\nContent-Length: 1\r\n\r\nA\r\n";
+//    public String conductTheProcess() throws IOException {
+//        return in.readLine();
+//    }
+
+    public byte[] conductTheProcess() throws IOException {
+        RequestStore requestStore = new RequestStore();
+        requestStore.setDirectory(directory);
+        parseRequest(in, requestStore);
+        routeRequest(requestStore);
+        Date date = new Date();
+        byte[] response = buildRequest(requestStore, date);
         return response;
     }
 
@@ -44,13 +56,13 @@ public class Conductor {
         parser.processRequest(input);
     }
 
-//    public void routeRequest(RequestStore requestStore) {
-//        Router router = new Router();
-//        router.route(requestStore);
-//    }
+    public void routeRequest(RequestStore requestStore) {
+        Router router = new Router();
+        router.routeRequest(requestStore);
+    }
 
-//      public byte[] buildRequest() {
-          //        ResponseBuilder responseBuilder = new ResponseBuilder(date);
-//        return responseBuilder.buildResponse(dataToBuildResponse);
-//      }
+      public byte[] buildRequest(RequestStore store, Date date) {
+        ResponseBuilder responseBuilder = new ResponseBuilder(store, date);
+        return responseBuilder.buildResponse(date);
+      }
 }
