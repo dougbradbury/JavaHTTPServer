@@ -14,7 +14,7 @@ public class Connection {
 
     public static void main(String args[]) {
 
-        String directory = "/Users/angeleah/Development/8th_light_apprenticeship/cob_spec/public/";  //parseDirectory(args);
+        String directory = "/Users/angeleah/Development/8th_light_apprenticeship/javaserver/src/com/angeleah/webserver/cob_spec/public/";  //parseDirectory(args);
 
         try {
 //            int port = Integer.parseInt(args[0]);

@@ -16,7 +16,7 @@ public class HtmlBodyBuilder {
     }
 
     public String createHtmlBodyWithDirectoryContents(ArrayList<String> content) {
-        return createHtmlHeaderTags() + createDirectoryLinks(content) + createClosingTags();
+        return createHtmlHeaderTags() + createDirectoryLinks(content) + createBodyContents(content) +createClosingTags();
     }
 
     public String createHtmlBodyWithParamsContent(Map<String, String> content) {
@@ -42,7 +42,9 @@ public class HtmlBodyBuilder {
     public String createDirectoryLinks(ArrayList<String> links) {
         StringBuilder linkTagString =  new StringBuilder();
         for (String link : links) {
-           linkTagString.append("<a href=\"/");
+           linkTagString.append("<a href=\"");
+           linkTagString.append("/");
+//           linkTagString.append("http://localhost:5000/");
            linkTagString.append(link);
            linkTagString.append("\">");
            linkTagString.append(link);
@@ -54,7 +56,7 @@ public class HtmlBodyBuilder {
     public String createBodyContents(ArrayList<String> contents) {
         StringBuilder body =  new StringBuilder();
         for (String item : contents) {
-            body.append("");
+            body.append(" ");
             body.append(item);
         }
         return body.toString();
