@@ -29,18 +29,6 @@ public class Conductor {
         this.directory = directory;
     }
 
-//    public byte[] conductTheProcess() throws IOException {
-//          String line = in.readLine();
-////        String response =  "HTTP/1.0 200 OK\r\nDate: Fri, 31 Dec 1999 23:59:59 GMT\r\nContent-Type: text/html\r\nContent-Length: 1\r\n\r\nA\r\n";
-//        String response = line + "\n\r\n<h1>A</h1>";
-////        return response.getBytes();
-//        return response.getBytes();
-//    }
-
-//    public String conductTheProcess() throws IOException {
-//        return in.readLine();
-//    }
-
     public byte[] conductTheProcess() throws IOException {
         RequestStore requestStore = new RequestStore();
         requestStore.setDirectory(directory);

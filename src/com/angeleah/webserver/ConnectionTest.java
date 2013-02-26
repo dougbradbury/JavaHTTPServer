@@ -25,9 +25,12 @@ public class ConnectionTest {
 //    public void itShouldBeAbleToCreateASocket() {
 //
 //    }
-
     @Test
-    public void itShouldBeAbleToParseADirectory() {
+    public void itShouldBeAbleToParseAPort() {
 
+        String[] args = new String[]{"ang/server/cool", "-p", "5000", "-d", "what!"};
+        assertEquals("cool", Connection.parsePort(args));
     }
+
+
 }
