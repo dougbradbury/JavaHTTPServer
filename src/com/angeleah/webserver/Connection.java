@@ -20,6 +20,7 @@ public class Connection {
         try {
             int port = parsePort(args);
             String directory = parseDirectory(args);
+            System.out.println(directory);
             ServerSocket serverSocket = new ServerSocket(port);
             for (;;)  {
                 Socket client = serverSocket.accept();
@@ -66,4 +67,3 @@ public class Connection {
         return argsContents;
     }
 }
-

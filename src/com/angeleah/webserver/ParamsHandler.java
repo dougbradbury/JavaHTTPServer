@@ -20,5 +20,4 @@ public class ParamsHandler implements RequestHandler {
         requestStore.setOk();
         return requestStore;
     }
-
 }

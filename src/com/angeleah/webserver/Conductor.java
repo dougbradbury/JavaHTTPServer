@@ -46,6 +46,7 @@ public class Conductor {
 
     public void routeRequest(RequestStore requestStore) {
         Router router = new Router();
+        registerRoutes(router);
         router.routeRequest(requestStore);
     }
 
@@ -53,4 +54,11 @@ public class Conductor {
         ResponseBuilder responseBuilder = new ResponseBuilder(store, date);
         return responseBuilder.buildResponse(date);
       }
+
+    private void registerRoutes(Router router) {
+        router.register("/", new IndexHandler());
+        router.register("/some-script-url", new ParamsHandler());
+        router.register("/form", new FormHandler());
+        router.register("/redirect", new RedirectHandler());
+    }
 }

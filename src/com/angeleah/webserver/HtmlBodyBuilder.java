@@ -1,6 +1,7 @@
 package com.angeleah.webserver;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -30,6 +31,12 @@ public class HtmlBodyBuilder {
     public String createHtmlNotFoundBody() {
         return createHtmlHeaderTags() + buildNotFound() + createClosingTags();
     }
+
+    public String createHtmlBodyWithParamsAndBodyContent(HashMap paramsContent, String bodyContent){
+        return createHtmlHeaderTags() + createParagraphsToContainParams(paramsContent) + createParagraphToContainRequestBody(bodyContent) + createClosingTags();
+    }
+
+
 
     public String createHtmlHeaderTags() {
         StringBuilder headerTagString = new StringBuilder();

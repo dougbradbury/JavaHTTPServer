@@ -26,8 +26,8 @@ public class RequestParser {
         ArrayList<String> requestHeaders = readHeaders(in);
         parseInitialRequestLine(requestHeaders.remove(0));
         if (checkForQueryStringParams()) {
-            String params = splitOffQueryStringParams();
-            processQueryStringParams(params);
+            processQueryStringParams();
+            seturiWithDetachedParams();
         }
         parseHeadersIntoKeyValuePairs(requestHeaders);
         setMimeType(requestStore.getRequestUri());
@@ -70,13 +70,14 @@ public class RequestParser {
         return (parts[1]);
     }
 
-    public void processQueryStringParams(String params) throws UnsupportedEncodingException {
+    public void processQueryStringParams() throws UnsupportedEncodingException {
+        String params = splitOffQueryStringParams();
         if (params.contains("&")) {
             splitRouteAtAmpersand(params);
         } else {
             HashMap<String,String> splitParams = new HashMap<String,String>();
             String pairs[] = params.split("=");
-            splitParams.put(decodeRequestUri(pairs[0]) , decodeRequestUri(pairs[1]));
+            splitParams.put(decodeRequestUri(pairs[0]), decodeRequestUri(pairs[1]));
             requestStore.setParams(splitParams);
         }
     }
@@ -90,6 +91,11 @@ public class RequestParser {
             splitParams.put(pairs[0], pairs[1]);
         }
         requestStore.setParams(splitParams);
+    }
+
+    public void seturiWithDetachedParams(){
+        String pairs[] = requestStore.getRequestUri().split("\\?");
+        requestStore.setRequestUri(pairs[0]);
     }
 
     public boolean lineContainsContentLength(String line) {
