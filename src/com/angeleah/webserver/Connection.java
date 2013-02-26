@@ -17,19 +17,16 @@ public class Connection {
 
         System.out.println(args);
 
-        String directory = "/Users/angeleah/Development/8th_light_apprenticeship/javaserver/src/com/angeleah/webserver/cob_spec/public/";
-
         try {
-
-//            String directory = parseDirectory(args);
-            ServerSocket serverSocket = new ServerSocket(5000);
+            int port = parsePort(args);
+            String directory = parseDirectory(args);
+            ServerSocket serverSocket = new ServerSocket(port);
             for (;;)  {
                 Socket client = serverSocket.accept();
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 Conductor conductor = new Conductor(in, directory);
                 DataOutputStream out= new DataOutputStream(client.getOutputStream());
-              //  out.writeChars(directory);
 
                 byte[] response = conductor.conductTheProcess();
                 int length = response.length;
@@ -69,34 +66,4 @@ public class Connection {
         return argsContents;
     }
 }
-
-
-//public class Connection {
-//
-//    public Connection(Socket client, String directory) {
-//    }
-//
-//    public void connect(Socket client, String directory) throws IOException {
-//
-//        try {
-//                BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-//                Conductor conductor = new Conductor(in, directory);
-//                DataOutputStream out= new DataOutputStream(client.getOutputStream());
-//
-//                byte[] response = conductor.conductTheProcess();
-//                int length = response.length;
-//                out.write(response, 0, length);
-//
-//                out.close();
-//                in.close();
-//                client.close();
-//        }
-//        catch (Exception e) {
-//            System.err.println(e);
-//            e.printStackTrace();
-//            System.err.println("Usage: java HttpMirror <port>");
-//        }
-//
-//    }
-//}
 
