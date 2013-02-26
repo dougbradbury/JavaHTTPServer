@@ -58,26 +58,5 @@ public class Router {
         }
         return directoryContents;
     }
-
-
-
-
-//        if (path.equals("/")) {
-//            return new IndexHandler();
-//        } else if (path.equals("/some-script-url?variable_1=123459876&variable_2=some_value")) {
-//            return new ParamsHandler();
-//        } else if (path.equals("/form?variable_1=Operators%20%3C%2C%20%3E%2C%20%3D%2C%20!%3D%3B%20%2B%2C%20-%2C%20*%2C%20%26%2C%20%40%2C%20%23%2C%20%24%2C%20%5B%2C%20%5D%3A%20%22is%20that%20all%22%3F")) {
-//            return new ParamsHandler();
-//        } else if (path.equals("/redirect")) {
-//            return new RedirectHandler();
-//
-//        } else if (path.equals("/form")) {
-//            return new FormHandler();
-//        } else {
-//            return new NotFoundHandler();
-//        }
-//    }
-
-
 }
 

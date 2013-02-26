@@ -13,24 +13,16 @@ import java.io.*;
 // * To change this template use File | Settings | File Templates.
 // */
 public class ConnectionTest {
-//
-//    public Connection connection;
-//
-//    @Before
-//    public void SetUp() {
-//          connection = new Connection();
-//    }
-//
-//    @Test
-//    public void itShouldBeAbleToCreateASocket() {
-//
-//    }
+
     @Test
     public void itShouldBeAbleToParseAPort() {
-
         String[] args = new String[]{"ang/server/cool", "-p", "5000", "-d", "what!"};
-        assertEquals("cool", Connection.parsePort(args));
+        assertEquals(5000, Connection.parsePort(args));
     }
 
-
+    @Test
+    public void itShouldBeAbleToParseADirectory() {
+        String[] args = new String[]{"ang/server/cool.jar", "-p", "5000", "-d", "com/angeleah/webserver/TestDirectory"};
+        assertEquals("com/angeleah/webserver/TestDirectory", Connection.parseDirectory(args));
+    }
 }
