@@ -1,5 +1,7 @@
 package com.angeleah.webserver;
 
+import org.junit.Test;
+
 /**
  * Created with IntelliJ IDEA.
  * User: angeleah
@@ -10,4 +12,10 @@ package com.angeleah.webserver;
 public class ArgsExceptionTest {
 
 //    test it  catch just that exception and make sure it happens
+
+    @Test(expected = ArgsException.class)
+    public void itShouldThrowAnExceptionWhenNotPassedADirectory() throws ArgsException {
+        String[] args = new String[]{"java -jar ang/server/cool", "-p", "5000"};
+            Connection.parseDirectory(args);
+    }
 }
