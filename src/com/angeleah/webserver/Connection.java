@@ -38,7 +38,7 @@ public class Connection {
             int index = argsList.indexOf("-p");
             if (index == -1) throw new ArgsException();
             String port = argsList.get(index + 1);
-            if (new Integer(port) > argsList.size()) throw new ArgsException();
+            if (argsList.indexOf(port) > argsList.size()) throw new ArgsException();
             return Integer.parseInt(port);
         }
 
@@ -47,7 +47,6 @@ public class Connection {
         int index = argsList.indexOf("-d");
         if (index == -1) throw new ArgsException();
         String directory = argsList.get(index + 1);
-        if (new Integer(directory) > argsList.size()) throw new ArgsException();
         return directory;
     }
 
