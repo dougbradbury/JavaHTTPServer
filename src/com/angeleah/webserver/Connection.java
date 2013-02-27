@@ -27,22 +27,27 @@ public class Connection {
                 thread.start();
             }
         }
-        catch (Exception e) {
-            System.err.println("You must provide a port and a directory argument. ex: java -jar pathToJarfile/jarfile.jar -p 5000 -d directoryPath");
+        catch (ArgsException e) {
+            System.err.println(e);
+            e.printStackTrace();
         }
     }
 
-        public static int parsePort(String[] args) {
+        public static int parsePort(String[] args) throws ArgsException {
             ArrayList<String> argsList = getArgs(args);
-            int index = argsList.indexOf("-p");         // -1                 make my own exception,(extend exception class)  test it  catch just that exception and make sure it happens
-            String port = argsList.get(index + 1);           //check that port is less than args length
+            int index = argsList.indexOf("-p");
+            if (index == -1) throw new ArgsException();
+            String port = argsList.get(index + 1);
+            if (new Integer(port) > argsList.size()) throw new ArgsException();
             return Integer.parseInt(port);
         }
 
-    public static String parseDirectory(String[] args) {
+    public static String parseDirectory(String[] args) throws ArgsException{
         ArrayList<String> argsList = getArgs(args);
         int index = argsList.indexOf("-d");
+        if (index == -1) throw new ArgsException();
         String directory = argsList.get(index + 1);
+        if (new Integer(directory) > argsList.size()) throw new ArgsException();
         return directory;
     }
 
@@ -80,7 +85,7 @@ final class HttpRequest implements Runnable {
         Conductor conductor = new Conductor(in, directory);
         DataOutputStream out= new DataOutputStream(client.getOutputStream());
 
-        byte[] response = conductor.conductTheProcess();        // conn close header  and  try loop
+        byte[] response = conductor.conductTheProcess();        // conn close header(worked)  and  try loop
         int length = response.length;
         out.write(response, 0, length);
 

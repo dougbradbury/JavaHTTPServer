@@ -15,13 +15,13 @@ import java.io.*;
 public class ConnectionTest {
 
     @Test
-    public void itShouldBeAbleToParseAPort() {
+    public void itShouldBeAbleToParseAPort() throws ArgsException {
         String[] args = new String[]{"ang/server/cool", "-p", "5000", "-d", "what!"};
         assertEquals(5000, Connection.parsePort(args));
     }
 
     @Test
-    public void itShouldBeAbleToParseADirectory() {
+    public void itShouldBeAbleToParseADirectory() throws ArgsException {
         String[] args = new String[]{"ang/server/cool.jar", "-p", "5000", "-d", "com/angeleah/webserver/TestDirectory"};
         assertEquals("com/angeleah/webserver/TestDirectory", Connection.parseDirectory(args));
     }
