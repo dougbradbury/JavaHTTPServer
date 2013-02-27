@@ -16,7 +16,7 @@ import static junit.framework.Assert.assertEquals;
  * Time: 4:02 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ConductorTest {
+public class  ConductorTest {
 
 //    @Test
 //    public void itShouldBeAbleToConductTheProcess() throws IOException {

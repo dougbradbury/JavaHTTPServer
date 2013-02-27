@@ -50,6 +50,7 @@ public class ResponseBuilder {
         StringBuilder headerResponse = new StringBuilder();
         headerResponse.append(buildInitialResponseLine());
         headerResponse.append(buildDateResponseLine(date));
+        headerResponse.append(buildConnectionCloseLine());
         if (requestStore.getCode().equals("302")) {
             headerResponse.append(buildLocationResponseLine());
         } else if (requestStore.getBody() != null) {
@@ -82,13 +83,15 @@ public class ResponseBuilder {
         line.append(" ");
         line.append(value);
         line.append("\r\n");
-//        System.out.println(line.toString());
-
         return line.toString();
     }
 
     public String buildDateResponseLine(Date date){
        return buildLine("Date", formatDate(date));
+    }
+
+    public String buildConnectionCloseLine() {
+        return buildLine("Connection", "close");
     }
 
     public String buildContentTypeResponseLine() {
