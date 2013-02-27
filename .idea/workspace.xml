@@ -9,7 +9,6 @@
     <list default="true" id="9639964e-0844-472c-8b40-9436b200a72d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/cob_spec" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/angeleah/webserver/ConnectionTest.java" afterPath="$PROJECT_DIR$/src/com/angeleah/webserver/ConnectionTest.java" />
     </list>
     <ignored path="javaserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -152,10 +151,21 @@
       <file leaf-file-name="Connection.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="37" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.24193548">
+            <state line="12" column="39" selection-start="254" selection-end="254" vertical-scroll-proportion="0.36290324">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1750#1758#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpRequest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HttpRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="23" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -215,7 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/RouterTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Router.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Conductor.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java" />
@@ -230,6 +239,7 @@
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ArgsException.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ArgsExceptionTest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/ConnectionTest.java" />
+        <option value="$PROJECT_DIR$/src/com/angeleah/webserver/HttpRequest.java" />
         <option value="$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java" />
       </list>
     </option>
@@ -628,7 +638,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19583932" sideWeight="0.69496024" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19583932" sideWeight="0.69496024" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3050398" sideWeight="0.9986577" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -697,13 +707,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/ParamsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="397" selection-end="526" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/RequestParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="0" selection-start="2362" selection-end="2362" vertical-scroll-proportion="0.0">
@@ -812,9 +815,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/HttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="23" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/angeleah/webserver/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="37" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.24193548">
+        <state line="12" column="39" selection-start="254" selection-end="254" vertical-scroll-proportion="0.36290324">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1750#1758#0" expanded="true" />
