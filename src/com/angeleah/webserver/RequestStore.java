@@ -126,6 +126,11 @@ public class RequestStore {
         status = "not found";
     }
 
+    public void set405() {
+        code = "405";
+        status = "Method Not Allowed";
+    }
+
     public void setMimeType(String type) {
         mimeType = type;
     }

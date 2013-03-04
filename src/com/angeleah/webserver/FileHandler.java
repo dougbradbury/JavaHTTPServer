@@ -10,11 +10,15 @@ package com.angeleah.webserver;
 public class FileHandler implements RequestHandler {
 
     public RequestStore handle(RequestStore requestStore) {
-        BinaryReader reader = new BinaryReader();
-        byte[] body = reader.read(requestStore.getDirectory(), requestStore.getRequestUri());
-        requestStore.setBody(body);
-        requestStore.setContentLength(body.length);
-        requestStore.setOk();
+        if (requestStore.getMethod().equals("GET")) {
+            BinaryReader reader = new BinaryReader();
+            byte[] body = reader.read(requestStore.getDirectory(), requestStore.getRequestUri());
+            requestStore.setBody(body);
+            requestStore.setContentLength(body.length);
+            requestStore.setOk();
+        } else {
+            requestStore.set405();
+        }
         return requestStore;
     }
 }

@@ -54,6 +54,7 @@ public class RouterTest {
         RequestStore requestStore = new RequestStore();
         requestStore.setDirectory("com/angeleah/webserver/TestDirectory");
         requestStore.setRequestUri("/awesomePage.html");
+        requestStore.setMethod("GET");
         Router router = new Router();
         router.routeRequest(requestStore);
         String body =  "<p>This Page is awesome</p>";

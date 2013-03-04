@@ -1,9 +1,5 @@
 package com.angeleah.webserver;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import static java.lang.System.out;
 
 /**
  * Created with IntelliJ IDEA.

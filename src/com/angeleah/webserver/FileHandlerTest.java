@@ -29,6 +29,7 @@ public class FileHandlerTest {
         requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
         String body = "<p>This Page is awesome</p>";
         requestStore.setRequestUri("awesomePage.html");
+        requestStore.setMethod("GET");
         fileHandler.handle(requestStore);
         assertEquals("200", requestStore.getCode());
         assertEquals("OK",requestStore.getStatus());
@@ -45,4 +46,17 @@ public class FileHandlerTest {
         }
         return true;
     }
+
+    @Test
+    public void itShouldReturnA405IfAnythingButAGetRequestIsMade() {
+        RequestStore requestStore = new RequestStore();
+        requestStore.setDirectory("com/angeleah/webserver/TestDirectory/");
+        requestStore.setRequestUri("awesomePage.html");
+        requestStore.setMethod("PUT");
+        fileHandler.handle(requestStore);
+        assertEquals("405", requestStore.getCode());
+        assertEquals("Method Not Allowed", requestStore.getStatus());
+    }
 }
+
+

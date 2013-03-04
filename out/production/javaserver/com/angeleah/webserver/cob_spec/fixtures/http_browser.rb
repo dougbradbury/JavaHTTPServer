@@ -18,6 +18,11 @@ module Fixtures
       econnrefused e
     end
 
+    def angeleah_test
+      "456"
+    end
+
+
     def post(url)
       @response = HTTParty.post("http://#{@host}:#{@port}#{url}", :body => @data)
       @message = response.message
@@ -40,6 +45,10 @@ module Fixtures
 
     def not_found_response
       return @status == 404
+    end
+
+    def method_not_allowed_response
+       return @status == 405
     end
     
     def body_has_content(content)

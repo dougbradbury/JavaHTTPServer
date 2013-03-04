@@ -19,11 +19,13 @@ public class Connection {
             int port = parsePort(args);
             String directory = parseDirectory(args);
             ServerSocket serverSocket = new ServerSocket(port);
+            ArrayList<Thread> threads = new ArrayList<Thread>();
 
             for (;;)  {
                 Socket client = serverSocket.accept();
                 HttpRequest request = new HttpRequest(client, directory);
                 Thread thread = new Thread(request);
+                threads.add(thread);
                 thread.start();
             }
         }
