@@ -18,11 +18,6 @@ module Fixtures
       econnrefused e
     end
 
-    def angeleah_test
-      "456"
-    end
-
-
     def post(url)
       @response = HTTParty.post("http://#{@host}:#{@port}#{url}", :body => @data)
       @message = response.message
@@ -54,7 +49,7 @@ module Fixtures
     def body_has_content(content)
       @data.include? content
     end
-    
+
     def body_has_directory_contents(directory)
       entries = Dir.entries(directory)
       entries.delete(".")
@@ -73,6 +68,16 @@ module Fixtures
       contents = File.open(file, 'rb') { |f| f.read }
       @data.include? contents
     end
+
+    def get_with_partial_content(file, url)
+        @response = HTTParty.put("http://#{@host}:#{@port}#{url}", {"Range:" => bytes=0-1})
+        contents = []
+        File.open(file, 'rb') do |f|
+            contents << f.each_char
+        end
+        @data == contents[0]
+    end
+
 
     def header_field_value(field)
       return @response.headers[field]
