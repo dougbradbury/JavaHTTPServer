@@ -12,5 +12,5 @@
 | script | server |
 | set path | /Users/angeleah/Development/8th_light_apprenticeship/javaserver/out/artifacts/javaserver_jar/javaserver.jar |
 | set port | 5000 |
-| set directory |/Users/angeleah/Development/8th_light_apprenticeship/javaserver/src/com/angeleah/webserver/cob_spec/public/ |
+| set directory | /Users/angeleah/Development/8th_light_apprenticeship/javaserver/src/com/angeleah/webserver/cob_spec/public/ |
 | start server |

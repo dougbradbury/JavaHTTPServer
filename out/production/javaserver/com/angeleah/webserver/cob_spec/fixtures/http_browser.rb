@@ -45,7 +45,7 @@ module Fixtures
     def method_not_allowed_response
        return @status == 405
     end
-    
+
     def body_has_content(content)
       @data.include? content
     end
@@ -57,27 +57,16 @@ module Fixtures
       entries.all? { |entry|
         @data.include? entry
       }
-
     end
 
     def body_has_link(path)
       not @data.match(/href=("|')[^'"]*\/#{path}("|')/).nil?
     end
-    
+
     def body_has_file_contents(file)
       contents = File.open(file, 'rb') { |f| f.read }
       @data.include? contents
     end
-
-    def get_with_partial_content(file, url)
-        @response = HTTParty.put("http://#{@host}:#{@port}#{url}", {"Range:" => bytes=0-1})
-        contents = []
-        File.open(file, 'rb') do |f|
-            contents << f.each_char
-        end
-        @data == contents[0]
-    end
-
 
     def header_field_value(field)
       return @response.headers[field]

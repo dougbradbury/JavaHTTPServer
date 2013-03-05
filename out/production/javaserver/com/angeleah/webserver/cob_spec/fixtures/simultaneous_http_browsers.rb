@@ -26,7 +26,7 @@ module Fixtures
 
     def execute
        hydra = Typhoeus::Hydra.new
-   #    hydra.disable_memoization
+       hydra.disable_memoization
        @urls.each do |request|
           hydra.queue request
        end
