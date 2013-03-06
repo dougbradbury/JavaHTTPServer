@@ -13,8 +13,9 @@ import java.util.HashMap;
  */
 public class Router {
 
-    public HashMap<String, Object> routes = new HashMap<String, Object>();
+    public HashMap<String, Object> routes = new HashMap<String, Object>(); //this should be private.
 
+//initialize the router with the directory and remove it from requestStore - ISP
     public Router() {
     }
 
