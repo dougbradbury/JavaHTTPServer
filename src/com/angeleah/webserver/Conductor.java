@@ -44,6 +44,11 @@ public class Conductor {
         parser.processRequest(input);
     }
 
+    //Some effeciency could be gained by not re-creating the router on each request
+    //but instead using the same router for all requests
+    //it has no state (right?) so using it from multiple threads at the same time
+    //should not be a problem
+    //
     public void routeRequest(RequestStore requestStore) {
         Router router = new Router();
         registerRoutes(router);

@@ -18,7 +18,7 @@ import static junit.framework.Assert.assertTrue;
  */
 public class RouterTest {
 
-    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
+    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){ //extract this thing into a test helper class that you can use everywhere - DRY
         for (int i=0; i< b1.length; i++) {
             if (b1[i] != b2[i]) {
                 return false;

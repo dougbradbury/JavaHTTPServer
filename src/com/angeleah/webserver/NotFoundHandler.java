@@ -7,6 +7,10 @@ package com.angeleah.webserver;
  * Time: 2:32 PM
  * To change this template use File | Settings | File Templates.
  */
+
+//Several of these handlers to almost the exact same thing
+//Might a strategy or template pattern be appropriate?
+
 public class NotFoundHandler implements RequestHandler{
 
     public RequestStore handle(RequestStore requestStore) {
@@ -19,5 +23,6 @@ public class NotFoundHandler implements RequestHandler{
     }
 }
 
+// Dead Code
 //          BinaryReader reader = new BinaryReader();
 //          byte[] body = reader.read(requestStore.getDirectory(), "/404.html");

@@ -42,7 +42,7 @@ public class ResponseBuilderTest {
         return requestStore;
     }
 
-    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
+    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){ //DRY
         for (int i=0; i< b1.length; i++) {
             if (b1[i] != b2[i]) {
                 return false;

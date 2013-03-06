@@ -22,6 +22,7 @@ public class BinaryReaderTest {
         reader = new BinaryReader();
     }
 
+    //move the dat file to the test directory?
     @Test
     public void itShouldBeAbleToReturnTheSizeOfABinaryFile() {
         String file = "/binary.dat";

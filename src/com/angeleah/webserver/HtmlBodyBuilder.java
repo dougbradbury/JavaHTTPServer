@@ -11,6 +11,12 @@ import java.util.Map;
  * Time: 2:50 PM
  * To change this template use File | Settings | File Templates.
  */
+
+//It's good that all the HTML building is extracted away from the rest of the server.
+//How, now, could this become more flexible?  How could it adhere to the Open Closed Principle (OCP)?
+//How could the templating be extended without modifying the classes that contain existing templates
+
+
 public class HtmlBodyBuilder {
 
     public HtmlBodyBuilder() {

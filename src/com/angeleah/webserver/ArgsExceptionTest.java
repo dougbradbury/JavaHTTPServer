@@ -13,6 +13,7 @@ public class ArgsExceptionTest {
 
 //    test it  catch just that exception and make sure it happens
 
+  //nice, I didin't know about this JUnit feature.
     @Test(expected = ArgsException.class)
     public void itShouldThrowAnExceptionWhenNotPassedADirectory() throws ArgsException {
         String[] args = new String[]{"java -jar ang/server/cool", "-p", "5000"};

@@ -35,7 +35,7 @@ final class HttpRequest implements Runnable {
         Conductor conductor = new Conductor(in, directory);
         DataOutputStream out= new DataOutputStream(client.getOutputStream());
 
-        byte[] response = conductor.conductTheProcess();
+        byte[] response = conductor.conductTheProcess(); //This could use a better name.  What is "The process"?
         int length = response.length;
         out.write(response, 0, length);
 

@@ -25,6 +25,8 @@ public class NotFoundHandlerTest {
         notFoundHandler = new NotFoundHandler();
     }
 
+    //How could this test not depend also on the body builder doing the right thing?
+    //If your html template for not found changes, should this test need to be modified?
     @Test
     public void itShouldbeAbleToHandleA404Properly() {
         RequestStore requestStore = new RequestStore();
@@ -36,7 +38,7 @@ public class NotFoundHandlerTest {
         assertEquals(true, FileByteArrayCompare(b1, b2));
     }
 
-    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){
+    public boolean FileByteArrayCompare(byte[] b1, byte[] b2){ //DRY
         for (int i=0; i< b1.length; i++) {
             if (b1[i] != b2[i]) {
                 return false;

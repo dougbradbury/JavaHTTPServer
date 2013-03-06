@@ -10,7 +10,7 @@ package com.angeleah.webserver;
 public class RedirectHandler implements RequestHandler{
 
     public RequestStore handle(RequestStore requestStore) {
-        requestStore.setRedirect();
+        requestStore.setRedirect(); //the details of what a redirect are perhaps belong here instead of the request store - OCP / SRP
         return requestStore;
     }
 }

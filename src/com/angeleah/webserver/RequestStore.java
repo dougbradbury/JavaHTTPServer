@@ -9,6 +9,8 @@ import java.util.HashMap;
  * Time: 9:32 AM
  * To change this template use File | Settings | File Templates.
  */
+
+//Can the public interface be reduced?  Move more methods to private and test through the public interface
 public class RequestStore {
     private String method = null;
     private String requestUri = null;
@@ -20,9 +22,9 @@ public class RequestStore {
     private String status = null;
     private String location = null;
     private String mimeType = null;
-    public Integer requestContentLength = null;
-    public Integer contentLength = null;
-    public HashMap<String,String> params = new HashMap<String,String>();
+    public Integer requestContentLength = null; //make private - encapsulation
+    public Integer contentLength = null; //make private - encapsulation
+    public HashMap<String,String> params = new HashMap<String,String>(); //make private - encapsulation
     private String requestBody = null;
 
 
@@ -86,11 +88,11 @@ public class RequestStore {
         return body;
     }
 
-    public void setDirectory(String dir) {
+    public void setDirectory(String dir) { //move elsewhere - ISP / cohesion
         directory = dir;
     }
 
-    public String getDirectory() {
+    public String getDirectory() { //move elsewhere - ISP / cohesion
         return directory;
     }
 
@@ -118,7 +120,7 @@ public class RequestStore {
     public void setRedirect() {
         code = "302";
         status = "redirect";
-        location  = "http://localhost:5000/";
+        location  = "http://localhost:5000/"; //hard coded host and port is bad for business, set location based on request location
     }
 
     public void set404() {

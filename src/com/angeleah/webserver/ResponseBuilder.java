@@ -12,6 +12,8 @@ import java.util.Date;
  * Time: 11:07 AM
  * To change this template use File | Settings | File Templates.
  */
+
+//Can the response builder be tested inly through the build method and the rest be made private?
 public class ResponseBuilder {
 
     public RequestStore requestStore;
@@ -22,7 +24,7 @@ public class ResponseBuilder {
         this.date = date;
     }
 
-    public String formatDate(Date date){
+    public String formatDate(Date date){ //make private or extract a class - encapsulation
         DateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
         String formattedDate = (dateFormat.format(date));
         return formattedDate;
